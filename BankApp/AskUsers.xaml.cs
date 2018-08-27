@@ -34,7 +34,7 @@ namespace BankApp
         {
             string content = this.content;
             content = Content.Text;
-            
+            //Hello
             if (DataBaseFile.UserExists(content))
             {
                 EditFile.UserName = content;
