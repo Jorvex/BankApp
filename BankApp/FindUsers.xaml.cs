@@ -25,7 +25,7 @@ namespace BankApp
             InitializeComponent();
             UserList.UsersList().ToList().ForEach(u => userListBox.Items.Add(u));
         }
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void GoBackButton(object sender, RoutedEventArgs e)
         {
             this.NavigationService.GoBack();
         }
