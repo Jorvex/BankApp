@@ -6,17 +6,17 @@
       xmlns:local="clr-namespace:BankApp"
       mc:Ignorable="d" 
       d:DesignHeight="550" d:DesignWidth="800"
-      Title="Extraccion">
+      Title="Extract">
 
     <Grid>
         <Grid.Background>
             <SolidColorBrush Color="Turquoise"/>
         </Grid.Background>
-        <Label Content="Extracto:" HorizontalAlignment="Left" Margin="23,30,0,0" VerticalAlignment="Top" Height="84" Width="426" FontSize="36"/>
-        <Button Content="Extraer" TabIndex="1" HorizontalAlignment="Left" Margin="181,374,0,0" VerticalAlignment="Top" Width="112" Height="50" FontSize="16" Click="ExtractButton"/>
-        <Label Content="Introduce la cantidad a retirar:" HorizontalAlignment="Left" Margin="104,145,0,0" VerticalAlignment="Top" Height="38" Width="340" FontSize="22"/>
-        <TextBox Name="Extraccion" HorizontalAlignment="Left" Height="42" Margin="114,234,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="240" FontSize="22"/>
-        <Button Content="Volver" TabIndex="2" HorizontalAlignment="Left" Margin="564,374,0,0" VerticalAlignment="Top" Width="114" Click="GoBackButton" Height="50" FontSize="16"/>
+        <Label Content="Extract:" HorizontalAlignment="Left" Margin="23,30,0,0" VerticalAlignment="Top" Height="84" Width="426" FontSize="36"/>
+        <Button Content="Extract" TabIndex="1" HorizontalAlignment="Left" Margin="181,374,0,0" VerticalAlignment="Top" Width="112" Height="50" FontSize="16" Click="ExtractButton"/>
+        <Label Content="Enter the quantity do you want to extract:" HorizontalAlignment="Left" Margin="104,145,0,0" VerticalAlignment="Top" Height="38" Width="442" FontSize="22"/>
+        <TextBox Name="ExtractBox" HorizontalAlignment="Left" Height="42" Margin="114,234,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="240" FontSize="22"/>
+        <Button Content="Back" TabIndex="2" HorizontalAlignment="Left" Margin="564,374,0,0" VerticalAlignment="Top" Width="114" Click="GoBackButton" Height="50" FontSize="16"/>
         <TextBlock HorizontalAlignment="Left" Margin="359,229,0,0" TextWrapping="Wrap" Text="€" VerticalAlignment="Top" Height="56" Width="54" FontSize="36"/>
     </Grid>
 </Page>

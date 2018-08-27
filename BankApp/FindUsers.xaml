@@ -12,9 +12,9 @@
         <Grid.Background>
             <SolidColorBrush Color="Turquoise"/>
         </Grid.Background>
-        <Label Content="Usuarios" HorizontalAlignment="Left" Margin="23,30,0,0" VerticalAlignment="Top" Height="84" Width="426" FontSize="36"/>
-        <Label Content="Aquí puedes ver los usuarios disponibles." HorizontalAlignment="Left" Margin="23,119,0,0" VerticalAlignment="Top" Height="38" Width="412" FontSize="22"/>
-        <Button Content="Volver" TabIndex="2" HorizontalAlignment="Left" Margin="564,374,0,0" VerticalAlignment="Top" Width="114" Click="Button_Click" Height="50" FontSize="16"/>
+        <Label Content="Users" HorizontalAlignment="Left" Margin="23,30,0,0" VerticalAlignment="Top" Height="84" Width="426" FontSize="36"/>
+        <Label Content="Here you can see available users:" HorizontalAlignment="Left" Margin="23,119,0,0" VerticalAlignment="Top" Height="38" Width="412" FontSize="22"/>
+        <Button Content="Back" TabIndex="2" HorizontalAlignment="Left" Margin="564,374,0,0" VerticalAlignment="Top" Width="114" Click="GoBackButton" Height="50" FontSize="16"/>
         <ListBox Name="userListBox" TabIndex="1" HorizontalAlignment="Left" Height="242" Margin="102,182,0,0" VerticalAlignment="Top" Width="297" SelectionChanged="userListBox_SelectionChanged"/>
         <Label Name="selectedUserLabel" Content="" HorizontalAlignment="Left" Margin="472,196,0,0" VerticalAlignment="Top" Height="60" Width="184" FontSize="36"/>
     </Grid>

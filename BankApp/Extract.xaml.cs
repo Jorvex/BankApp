@@ -31,7 +31,7 @@ namespace BankApp
             try
             {
                 string extract = this.extract;
-                extract = Extraccion.Text;
+                extract = ExtractBox.Text;
 
                 EditFile.Balance -= Int32.Parse(extract);
                 EditFile.SaveDataToFile();

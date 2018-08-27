@@ -27,14 +27,14 @@ namespace BankApp
 
         private void DepositButton(object sender, RoutedEventArgs e)
         {
-            Deposit ingresar = new Deposit();
-            this.NavigationService.Navigate(ingresar);
+            Deposit deposit = new Deposit();
+            this.NavigationService.Navigate(deposit);
         }
 
         private void ExtractButton(object sender, RoutedEventArgs e)
         {
-            Extract extraer = new Extract();
-            this.NavigationService.Navigate(extraer);
+            Extract extract = new Extract();
+            this.NavigationService.Navigate(extract);
         }
 
         public delegate void Message(string message);
