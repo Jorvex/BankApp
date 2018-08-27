@@ -48,7 +48,7 @@ namespace BankApp
                 switch (Reply)
                 {
                     case MessageBoxResult.Yes:
-                        MessageBox.Show($"User created as: {content}.");
+                        MessageBox.Show($"User created as {content}.");
 
                         var lines = File.ReadAllLines(DataBaseFile.DBFile).ToList();
                         EditFile.UserName = content;
