@@ -21,7 +21,7 @@ namespace BankApp
     /// </summary>
     public partial class AskUsers : Page
     {
-        public SizeToContent SizeToContent { get; set; }
+        public System.Windows.SizeToContent SizeToContent { get; set; }
         public AskUsers()
         {
             DataBaseFile database = new DataBaseFile();
