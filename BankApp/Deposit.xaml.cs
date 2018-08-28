@@ -31,7 +31,7 @@ namespace BankApp
             try
             {
                 string deposit = this.deposit;
-                deposit = Ingreso.Text;
+                deposit = DepositBox.Text;
 
                 EditFile.Balance += Int32.Parse(deposit);
                 EditFile.SaveDataToFile();

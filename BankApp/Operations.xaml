@@ -6,21 +6,21 @@
       xmlns:local="clr-namespace:BankApp"
       mc:Ignorable="d" 
       d:DesignHeight="550" d:DesignWidth="800"
-      Title="Operaciones">
+      Title="Operations">
 
     <Grid>
         <Grid.Background>
             <SolidColorBrush Color="Turquoise"/>
         </Grid.Background>
-        <Label Content="Bienvenido!" HorizontalAlignment="Left" Margin="23,30,0,0" VerticalAlignment="Top" Height="84" Width="426" FontSize="36"/>
-        <Label Content="¿Que deseas hacer?" HorizontalAlignment="Left" Margin="23,85,0,0" VerticalAlignment="Top" Height="38" Width="240" FontSize="22"/>
-        <Button Content="Ingresar" TabIndex="1" HorizontalAlignment="Left" Margin="120,165,0,0" VerticalAlignment="Top" Width="112" Height="50" FontSize="16" Click="DepositButton"/>
-        <Label Content="Ingresar la cantidad a escoger." HorizontalAlignment="Left" Margin="23,229,0,0" VerticalAlignment="Top" Height="47" Width="309" FontSize="20"/>
-        <Button Content="Extraer" TabIndex="2" HorizontalAlignment="Left" Margin="560,165,0,0" VerticalAlignment="Top" Width="112" Height="50" FontSize="16" Click="ExtractButton"/>
-        <Label Content="Extrae la cantidad a escoger." HorizontalAlignment="Left" Margin="483,229,0,0" VerticalAlignment="Top" Height="47" Width="288" FontSize="20"/>
-        <Button Content="Mostrar Saldo" TabIndex="3" HorizontalAlignment="Left" Margin="120,355,0,0" VerticalAlignment="Top" Width="112" Height="50" FontSize="16" Click="BalanceButton"/>
-        <Label Content="Muestra el saldo disponible en tu cuenta." HorizontalAlignment="Left" Margin="23,410,0,0" VerticalAlignment="Top" Height="46" Width="411" FontSize="20"/>
-        <Button Content="Usuarios" TabIndex="4" HorizontalAlignment="Left" Margin="560,355,0,0" VerticalAlignment="Top" Width="112" FontSize="16" Height="50" Click="UsersButton"/>
-        <Label Content="Muestra los usuarios disponibles." HorizontalAlignment="Left" Margin="462,410,0,0" VerticalAlignment="Top" Height="47" Width="309" FontSize="20"/>
+        <Label Content="Welcome!" HorizontalAlignment="Left" Margin="23,30,0,0" VerticalAlignment="Top" Height="84" Width="426" FontSize="36"/>
+        <Label Content="What do you want to do?" HorizontalAlignment="Left" Margin="23,85,0,0" VerticalAlignment="Top" Height="38" Width="240" FontSize="22"/>
+        <Button Content="Deposit" TabIndex="1" HorizontalAlignment="Left" Margin="120,165,0,0" VerticalAlignment="Top" Width="112" Height="50" FontSize="16" Click="DepositButton"/>
+        <Label Content="Deposit the selected quantity." HorizontalAlignment="Left" Margin="23,229,0,0" VerticalAlignment="Top" Height="47" Width="309" FontSize="20"/>
+        <Button Content="Extract" TabIndex="2" HorizontalAlignment="Left" Margin="560,165,0,0" VerticalAlignment="Top" Width="112" Height="50" FontSize="16" Click="ExtractButton"/>
+        <Label Content="Extract the selected quantity." HorizontalAlignment="Left" Margin="483,229,0,0" VerticalAlignment="Top" Height="47" Width="288" FontSize="20"/>
+        <Button Content="Show Balance" TabIndex="3" HorizontalAlignment="Left" Margin="120,355,0,0" VerticalAlignment="Top" Width="112" Height="50" FontSize="16" Click="BalanceButton"/>
+        <Label Content="Show available balance on your account." HorizontalAlignment="Left" Margin="23,410,0,0" VerticalAlignment="Top" Height="46" Width="411" FontSize="20"/>
+        <Button Content="Users" TabIndex="4" HorizontalAlignment="Left" Margin="560,355,0,0" VerticalAlignment="Top" Width="112" FontSize="16" Height="50" Click="UsersButton"/>
+        <Label Content="See other users registered." HorizontalAlignment="Left" Margin="502,410,0,0" VerticalAlignment="Top" Height="47" Width="249" FontSize="20"/>
     </Grid>
 </Page>
