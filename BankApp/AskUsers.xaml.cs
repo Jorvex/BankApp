@@ -21,11 +21,9 @@ namespace BankApp
     /// </summary>
     public partial class AskUsers : Page
     {
-        public System.Windows.SizeToContent SizeToContent { get; set; }
         public AskUsers()
         {
             DataBaseFile database = new DataBaseFile();
-            this.SizeToContent = SizeToContent.WidthAndHeight;
             InitializeComponent();
         }
 
@@ -64,6 +62,11 @@ namespace BankApp
                 }
             }
 
+        }
+        public System.Windows.SizeToContent SizeToContent { get; set; }
+        private void ResizeAuto(object sender, SizeChangedEventArgs e)
+        {
+            this.SizeToContent = SizeToContent.WidthAndHeight;
         }
     }
 }

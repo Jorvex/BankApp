@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:BankApp"
       mc:Ignorable="d" 
       d:DesignHeight="200" d:DesignWidth="325"
-      Title="LogIn">
+      Title="LogIn" SizeChanged="ResizeAuto">
 
     <Grid>
         <Grid.Background>
