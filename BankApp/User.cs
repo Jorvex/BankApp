@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace BankApp
 {
+    //Specify how to write the data in the DB file.
     public class User
     {
         public string Name { get; set; }

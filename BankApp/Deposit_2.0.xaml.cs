@@ -23,9 +23,12 @@ namespace BankApp
         {
             InitializeComponent();
         }
+        
+        //Manages deposit button.
         public string deposit;
         private void DepositButton(object sender, RoutedEventArgs e)
         {
+            //Adds the related quantity.
             try
             {
                 string deposit = this.deposit;
@@ -34,15 +37,17 @@ namespace BankApp
                 EditFile.Balance += Int32.Parse(deposit);
                 EditFile.SaveDataToFile();
                 MessageBox.Show("Successfully deposited.");
+                //Close the window.
                 this.Close();
             }
+            //If in TextBox there are not only numbers, will appear a error message.
             catch (FormatException)
             {
                 MessageBox.Show("Incorrect format! Please, type only numbers.");
             }
         }
-
-        private void GoBackButton(object sender, RoutedEventArgs e)
+        //Close the window.
+        private void CloseButton(object sender, RoutedEventArgs e)
         {
             this.Close();
         }

@@ -22,13 +22,15 @@ namespace BankApp
         public FindUsers_2()
         {
             InitializeComponent();
+            //Create a list and adds all users detected on DB file to this list.
             UserList.UsersList().ToList().ForEach(u => userListBox.Items.Add(u));
         }
+        //Close the window.
         private void CloseButton(object sender, RoutedEventArgs e)
         {
             this.Close();
         }
-
+        //When you click on a name in the list box, a label with null value next to it will change to the name.
         private void UserListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             var listbox = sender as ListBox;

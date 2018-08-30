@@ -19,35 +19,29 @@ namespace BankApp
     /// </summary>
     public partial class Operations_2 : Window
     {
+        //Principal functions.
         public Operations_2()
         {
             InitializeComponent();
         }
-
+        //Runs the Deposit window.
         private void DepositButton(object sender, RoutedEventArgs e)
         {
             Deposit_2 deposit = new Deposit_2();
             deposit.ShowDialog();
         }
-
+        //Runs the Extract window.
         private void ExtractButton(object sender, RoutedEventArgs e)
         {
             Extract_2 extract = new Extract_2();
             extract.ShowDialog();
         }
-
-        public delegate void Message(string message);
-        public void MessageAction(string message)
-        {
-            var del = MessageBox.Show(message);
-        }
-
+        //Shows the current Balance of the user.
         private void BalanceButton(object sender, RoutedEventArgs e)
         {
-            Message action = MessageAction;
-            action($"{EditFile.UserName}, your current balance is: {EditFile.Balance}€.");
+            MessageBox.Show($"{EditFile.UserName}, your current balance is: {EditFile.Balance}€.");
         }
-
+        //Runs the FindUsers window.
         private void UsersButton(object sender, RoutedEventArgs e)
         {
             FindUsers_2 users = new FindUsers_2();
