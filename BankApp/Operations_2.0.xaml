@@ -5,15 +5,15 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BankApp"
         mc:Ignorable="d"
-        Title="Operations_2" Height="530" Width="800">
+        Title="Operations" Height="530" Width="800">
     <Grid>
         <Grid.Background>
-            <SolidColorBrush Color="Turquoise"/>
+            <ImageBrush ImageSource="E:\Proyectos\Visual Studio\BankApp\BankApp\Background1.jpg"/>
         </Grid.Background>
         <Label Content="Welcome!" HorizontalAlignment="Left" Margin="23,30,0,0" VerticalAlignment="Top" Height="84" Width="426" FontSize="36"/>
         <Label Content="What do you want to do?" HorizontalAlignment="Left" Margin="23,85,0,0" VerticalAlignment="Top" Height="38" Width="276" FontSize="22"/>
         <Button Content="Deposit" TabIndex="1" HorizontalAlignment="Left" Margin="120,165,0,0" VerticalAlignment="Top" Width="112" Height="50" FontSize="16" Click="DepositButton"/>
-        <Label Content="Deposit the selected quantity." HorizontalAlignment="Left" Margin="23,229,0,0" VerticalAlignment="Top" Height="47" Width="309" FontSize="20"/>
+        <Label Content="Deposit the selected quantity." HorizontalAlignment="Left" Margin="47,229,0,0" VerticalAlignment="Top" Height="47" Width="309" FontSize="20"/>
         <Button Content="Extract" TabIndex="2" HorizontalAlignment="Left" Margin="560,165,0,0" VerticalAlignment="Top" Width="112" Height="50" FontSize="16" Click="ExtractButton"/>
         <Label Content="Extract the selected quantity." HorizontalAlignment="Left" Margin="483,229,0,0" VerticalAlignment="Top" Height="47" Width="288" FontSize="20"/>
         <Button Content="Show Balance" TabIndex="3" HorizontalAlignment="Left" Margin="120,355,0,0" VerticalAlignment="Top" Width="112" Height="50" FontSize="16" Click="BalanceButton"/>

@@ -5,10 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BankApp"
         mc:Ignorable="d"
-        Title="Deposit_2" Height="450" Width="780">
+        Title="Deposit" Height="450" Width="780">
     <Grid>
         <Grid.Background>
-            <SolidColorBrush Color="Turquoise"/>
+            <ImageBrush ImageSource="E:\Proyectos\Visual Studio\BankApp\BankApp\Background2.jpg"/>
         </Grid.Background>
         <Label Content="Deposit:" HorizontalAlignment="Left" Margin="23,30,0,0" VerticalAlignment="Top" Height="84" Width="426" FontSize="36"/>
         <Button Content="Deposit" TabIndex="1" HorizontalAlignment="Left" Margin="181,292,0,0" VerticalAlignment="Top" Width="112" Height="50" FontSize="16" Click="DepositButton"/>

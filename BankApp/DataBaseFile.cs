@@ -18,7 +18,6 @@ namespace BankApp
             if (!File.Exists(DBFile))
             {
                 var myFile = File.Create(DBFile);
-
                 myFile.Close();
             }
         }
