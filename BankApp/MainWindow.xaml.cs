@@ -46,7 +46,7 @@ namespace BankApp
             //If not, it will ask for create a new one.
             else
             {
-                MessageBoxResult Reply = MessageBox.Show("There are no matches in database, do you want to create a new one?", "Log In", MessageBoxButton.YesNo);
+                MessageBoxResult Reply = MessageBox.Show("There are no matches in the database, do you want to create a new one?", "Log In", MessageBoxButton.YesNo);
                 switch (Reply)
                 {
                     case MessageBoxResult.Yes:
