@@ -12,14 +12,17 @@ namespace BankApp
         public static string UserName { get; set; }
         public static double Balance { get; set; }
 
+        //Checks the lines of the DB file.
         public static void ReadFile()
         {
             var lines = File.ReadAllLines(DataBaseFile.DBFile).ToList();
+            //The next line allows to only edit the current User that has logged in.
             string line = lines.FirstOrDefault(x => x.Contains(UserName));
             var parts = line.Split(',');
             string user = parts[0];
             Balance = double.Parse(parts[1]);
         }
+        //Saves all data in database file.
         public static void SaveDataToFile()
         {
             var lines = File.ReadAllLines(DataBaseFile.DBFile).ToList();

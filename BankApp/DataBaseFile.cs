@@ -9,8 +9,10 @@ namespace BankApp
 {
     public class DataBaseFile
     {
+        //Creates a database in txt format.
         public static string DBFile = Path.Combine(Environment.CurrentDirectory, @"DataBase.txt");
 
+        //Checks if the file exists, if not, it will create a new one.
         public DataBaseFile()
         {
             if (!File.Exists(DBFile))
@@ -21,6 +23,7 @@ namespace BankApp
             }
         }
 
+        //Checks the file for find users.
         public static bool UserExists(string username)
         {
             var lines = File.ReadAllLines(DataBaseFile.DBFile).ToList();

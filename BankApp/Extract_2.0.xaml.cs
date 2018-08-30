@@ -24,9 +24,11 @@ namespace BankApp
             InitializeComponent();
         }
 
+        //Manages extract button.
         public string extract;
         private void ExtractButton(object sender, RoutedEventArgs e)
         {
+            //Removes the related quantity.
             try
             {
                 string extract = this.extract;
@@ -35,17 +37,17 @@ namespace BankApp
                 EditFile.Balance -= Int32.Parse(extract);
                 EditFile.SaveDataToFile();
                 MessageBox.Show("Successfully extracted.");
-
-                //Go back to main menu.
+                //Close the window.
                 this.Close();
             }
+            //If in TextBox there are not only numbers, will appear a error message.
             catch (FormatException)
             {
                 MessageBox.Show("Incorrect format! Please, type only numbers.");
             }
         }
-
-        private void GoBackButton(object sender, RoutedEventArgs e)
+        //Close the window.
+        private void CloseButton(object sender, RoutedEventArgs e)
         {
             this.Close();
         }
