@@ -1,0 +1,19 @@
+﻿<Window x:Class="BankApp.FindUsers_2"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BankApp"
+        mc:Ignorable="d"
+        Title="FindUsers_2" Height="510" Width="750">
+    <Grid>
+        <Grid.Background>
+            <SolidColorBrush Color="Turquoise"/>
+        </Grid.Background>
+        <Label Content="Users" HorizontalAlignment="Left" Margin="23,30,0,0" VerticalAlignment="Top" Height="84" Width="426" FontSize="36"/>
+        <Label Content="Here you can see available users:" HorizontalAlignment="Left" Margin="23,119,0,0" VerticalAlignment="Top" Height="38" Width="412" FontSize="22"/>
+        <Button Content="Close" TabIndex="2" HorizontalAlignment="Left" Margin="564,374,0,0" VerticalAlignment="Top" Width="114" Click="CloseButton" Height="50" FontSize="16"/>
+        <ListBox Name="userListBox" TabIndex="1" HorizontalAlignment="Left" Height="242" Margin="102,182,0,0" VerticalAlignment="Top" Width="297" SelectionChanged="UserListBox_SelectionChanged"/>
+        <Label Name="selectedUserLabel" Content="" HorizontalAlignment="Left" Margin="472,196,0,0" VerticalAlignment="Top" Height="60" Width="184" FontSize="36"/>
+    </Grid>
+</Window>
