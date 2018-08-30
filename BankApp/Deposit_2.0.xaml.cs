@@ -10,23 +10,21 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace BankApp
 {
     /// <summary>
-    /// Lógica de interacción para Deposit.xaml
+    /// Lógica de interacción para Deposit_2.xaml
     /// </summary>
-    public partial class Deposit : Page
+    public partial class Deposit_2 : Window
     {
-        public Deposit()
+        public Deposit_2()
         {
             InitializeComponent();
         }
-
         public string deposit;
-        private void Entry(object sender, RoutedEventArgs e)
+        private void DepositButton(object sender, RoutedEventArgs e)
         {
             try
             {
@@ -36,9 +34,7 @@ namespace BankApp
                 EditFile.Balance += Int32.Parse(deposit);
                 EditFile.SaveDataToFile();
                 MessageBox.Show("Successfully deposited.");
-
-                //Go back to main menu.
-                this.NavigationService.GoBack();
+                this.Close();
             }
             catch (FormatException)
             {
@@ -46,9 +42,9 @@ namespace BankApp
             }
         }
 
-        private void GoBack(object sender, RoutedEventArgs e)
+        private void GoBackButton(object sender, RoutedEventArgs e)
         {
-            this.NavigationService.GoBack();
+            this.Close();
         }
     }
 }

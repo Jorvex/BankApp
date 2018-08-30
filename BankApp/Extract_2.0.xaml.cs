@@ -10,17 +10,16 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace BankApp
 {
     /// <summary>
-    /// Lógica de interacción para Extract.xaml
+    /// Lógica de interacción para Extract_2.xaml
     /// </summary>
-    public partial class Extract : Page
+    public partial class Extract_2 : Window
     {
-        public Extract()
+        public Extract_2()
         {
             InitializeComponent();
         }
@@ -38,7 +37,7 @@ namespace BankApp
                 MessageBox.Show("Successfully extracted.");
 
                 //Go back to main menu.
-                this.NavigationService.GoBack();
+                this.Close();
             }
             catch (FormatException)
             {
@@ -48,7 +47,7 @@ namespace BankApp
 
         private void GoBackButton(object sender, RoutedEventArgs e)
         {
-            this.NavigationService.GoBack();
+            this.Close();
         }
     }
 }

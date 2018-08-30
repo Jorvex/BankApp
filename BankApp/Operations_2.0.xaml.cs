@@ -10,31 +10,30 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace BankApp
 {
     /// <summary>
-    /// Lógica de interacción para Operations.xaml
+    /// Lógica de interacción para Operations_2.xaml
     /// </summary>
-    public partial class Operations : Page
+    public partial class Operations_2 : Window
     {
-        public Operations()
+        public Operations_2()
         {
             InitializeComponent();
         }
 
         private void DepositButton(object sender, RoutedEventArgs e)
         {
-            Deposit deposit = new Deposit();
-            this.NavigationService.Navigate(deposit);
+            Deposit_2 deposit = new Deposit_2();
+            deposit.ShowDialog();
         }
 
         private void ExtractButton(object sender, RoutedEventArgs e)
         {
-            Extract extract = new Extract();
-            this.NavigationService.Navigate(extract);
+            Extract_2 extract = new Extract_2();
+            extract.ShowDialog();
         }
 
         public delegate void Message(string message);
@@ -51,8 +50,8 @@ namespace BankApp
 
         private void UsersButton(object sender, RoutedEventArgs e)
         {
-            Users users = new Users();
-            this.NavigationService.Navigate(users);
+            FindUsers_2 users = new FindUsers_2();
+            users.ShowDialog();
         }
     }
 }

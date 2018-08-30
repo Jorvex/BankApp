@@ -10,30 +10,29 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace BankApp
 {
     /// <summary>
-    /// Lógica de interacción para FindUsers.xaml
+    /// Lógica de interacción para FindUsers_2.xaml
     /// </summary>
-    public partial class Users : Page
+    public partial class FindUsers_2 : Window
     {
-        public Users()
+        public FindUsers_2()
         {
             InitializeComponent();
             UserList.UsersList().ToList().ForEach(u => userListBox.Items.Add(u));
         }
-        private void GoBackButton(object sender, RoutedEventArgs e)
+        private void CloseButton(object sender, RoutedEventArgs e)
         {
-            this.NavigationService.GoBack();
+            this.Close();
         }
 
-        private void userListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void UserListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             var listbox = sender as ListBox;
-            var user = listbox.SelectedItem as Users;
+            var user = listbox.SelectedItem as User;
             selectedUserLabel.Content = user.Name;
         }
     }

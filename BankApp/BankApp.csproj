@@ -55,24 +55,29 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="FindUsers.xaml.cs">
-      <DependentUpon>FindUsers.xaml</DependentUpon>
+    <Compile Include="Deposit_2.0.xaml.cs">
+      <DependentUpon>Deposit_2.0.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Extract_2.0.xaml.cs">
+      <DependentUpon>Extract_2.0.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="FindUsers_2.0.xaml.cs">
+      <DependentUpon>FindUsers_2.0.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Operations_2.0.xaml.cs">
+      <DependentUpon>Operations_2.0.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserList.cs" />
     <Compile Include="User.cs" />
-    <Page Include="AskUsers.xaml">
+    <Page Include="Deposit_2.0.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Deposit.xaml">
+    <Page Include="Extract_2.0.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Extract.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="FindUsers.xaml">
+    <Page Include="FindUsers_2.0.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -84,30 +89,18 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="AskUsers.xaml.cs">
-      <DependentUpon>AskUsers.xaml</DependentUpon>
-    </Compile>
     <Compile Include="DataBaseFile.cs" />
-    <Compile Include="Deposit.xaml.cs">
-      <DependentUpon>Deposit.xaml</DependentUpon>
-    </Compile>
     <Compile Include="EditFile.cs" />
-    <Compile Include="Extract.xaml.cs">
-      <DependentUpon>Extract.xaml</DependentUpon>
-    </Compile>
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="Operations.xaml">
+    <Page Include="Operations_2.0.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Operations.xaml.cs">
-      <DependentUpon>Operations.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
