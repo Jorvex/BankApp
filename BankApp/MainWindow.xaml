@@ -8,7 +8,7 @@
         Title="Jorvex BankApp" Height="250" Width="360">
     <Grid>
         <Grid.Background>
-            <ImageBrush ImageSource="E:\Proyectos\Visual Studio\BankApp\BankApp\Background3.jpg"/>
+            <ImageBrush ImageSource="E:\Proyectos\Visual Studio\BankApp\BankApp\Background2.jpg"/>
         </Grid.Background>
         <Image Source="E:\Proyectos\Visual Studio\BankApp\BankApp\Logo.png" Margin="248,0,0,92" Height="87" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="87"/>
         <Label Content="Enter your username: " HorizontalAlignment="Left" Margin="24,41,0,0" VerticalAlignment="Top" Height="47" Width="359" FontSize="18"/>

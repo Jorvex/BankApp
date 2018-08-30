@@ -8,7 +8,7 @@
         Title="Users List" Height="510" Width="750">
     <Grid>
         <Grid.Background>
-            <ImageBrush ImageSource="E:\Proyectos\Visual Studio\BankApp\BankApp\Background3.jpg"/>
+            <ImageBrush ImageSource="E:\Proyectos\Visual Studio\BankApp\BankApp\Background2.jpg"/>
         </Grid.Background>
         <Label Content="Users" HorizontalAlignment="Left" Margin="23,30,0,0" VerticalAlignment="Top" Height="84" Width="426" FontSize="36"/>
         <Label Content="Here you can see available users:" HorizontalAlignment="Left" Margin="23,119,0,0" VerticalAlignment="Top" Height="38" Width="412" FontSize="22"/>
