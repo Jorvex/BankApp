@@ -21,7 +21,6 @@ namespace BankApp
                 myFile.Close();
             }
         }
-
         //Checks the file for find users.
         public static bool UserExists(string username)
         {
