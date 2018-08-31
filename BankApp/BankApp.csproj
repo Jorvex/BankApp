@@ -103,6 +103,9 @@
     <Compile Include="Operations_2.0.xaml.cs">
       <DependentUpon>Operations_2.0.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Register.xaml.cs">
+      <DependentUpon>Register.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserList.cs" />
     <Compile Include="User.cs" />
     <Page Include="Deposit_2.0.xaml">
@@ -132,6 +135,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Operations_2.0.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Register.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -31,7 +31,7 @@ namespace BankApp
         private void LogInButton(object sender, RoutedEventArgs e)
         {
             string content = this.content;
-            content = Content.Text;
+            content = User.Text;
 
             //If the user already exists, it will continue to the next window.
             if (DataBaseFile.UserExists(content))
@@ -67,6 +67,12 @@ namespace BankApp
                 }
             }
 
+        }
+        private void RegisterButton(object sender, RoutedEventArgs e)
+        {
+            Register register = new Register();
+            this.Close();
+            register.ShowDialog();
         }
     }
 }
