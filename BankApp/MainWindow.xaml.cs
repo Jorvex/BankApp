@@ -26,13 +26,12 @@ namespace BankApp
             DataBaseFile database = new DataBaseFile();
             InitializeComponent();
         }
-
-        //Checks if the user already exists.
+        //Create this variable for manage the TextBox.
         public string content;
         private void LogInButton(object sender, RoutedEventArgs e)
         {
             string content = this.content;
-            content = Content.Text;
+            content = User.Text;
 
             //If the user already exists, it will continue to the next window.
             if (DataBaseFile.UserExists(content))
@@ -43,6 +42,7 @@ namespace BankApp
                 this.Close();
                 operations.ShowDialog();
             }
+            
             //If not, it will ask for create a new one.
             else
             {
@@ -52,12 +52,13 @@ namespace BankApp
                     case MessageBoxResult.Yes:
                         MessageBox.Show($"User created as {content}.");
 
-                        var lines = File.ReadAllLines(DataBaseFile.DBFile).ToList();
+                        var lines_2 = File.ReadAllLines(DataBaseFile.DBFile).ToList();
                         EditFile.UserName = content;
-                        lines.Add($"{content},{EditFile.Balance}");
+                        lines_2.Add($"{content},{EditFile.Balance}");
 
-                        File.WriteAllLines(DataBaseFile.DBFile, lines);
+                        File.WriteAllLines(DataBaseFile.DBFile, lines_2);
                         Operations_2 NewWindow = new Operations_2();
+                        this.Close();
                         NewWindow.ShowDialog();
                         break;
 
@@ -66,6 +67,12 @@ namespace BankApp
                 }
             }
 
+        }
+        private void RegisterButton(object sender, RoutedEventArgs e)
+        {
+            Register register = new Register();
+            this.Close();
+            register.ShowDialog();
         }
     }
 }

@@ -30,11 +30,11 @@ namespace BankApp
             Deposit_2 deposit = new Deposit_2();
             deposit.ShowDialog();
         }
-        //Runs the Extract window.
-        private void ExtractButton(object sender, RoutedEventArgs e)
+        //Runs the Withdraw window.
+        private void WithdrawButton(object sender, RoutedEventArgs e)
         {
-            Extract_2 extract = new Extract_2();
-            extract.ShowDialog();
+            Withdraw_2 withdraw = new Withdraw_2();
+            withdraw.ShowDialog();
         }
         //Shows the current Balance of the user.
         private void BalanceButton(object sender, RoutedEventArgs e)
