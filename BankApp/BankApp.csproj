@@ -94,8 +94,8 @@
     <Compile Include="Deposit_2.0.xaml.cs">
       <DependentUpon>Deposit_2.0.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Extract_2.0.xaml.cs">
-      <DependentUpon>Extract_2.0.xaml</DependentUpon>
+    <Compile Include="Withdraw_2.0.xaml.cs">
+      <DependentUpon>Withdraw_2.0.xaml</DependentUpon>
     </Compile>
     <Compile Include="FindUsers_2.0.xaml.cs">
       <DependentUpon>FindUsers_2.0.xaml</DependentUpon>
@@ -112,7 +112,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Extract_2.0.xaml">
+    <Page Include="Withdraw_2.0.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

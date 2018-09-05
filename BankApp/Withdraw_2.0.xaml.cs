@@ -15,28 +15,28 @@ using System.Windows.Shapes;
 namespace BankApp
 {
     /// <summary>
-    /// Lógica de interacción para Extract_2.xaml
+    /// Lógica de interacción para Withdraw_2.xaml
     /// </summary>
-    public partial class Extract_2 : Window
+    public partial class Withdraw_2 : Window
     {
-        public Extract_2()
+        public Withdraw_2()
         {
             InitializeComponent();
         }
 
-        //Manages extract button.
-        public string extract;
-        private void ExtractButton(object sender, RoutedEventArgs e)
+        //Manages withdraw button.
+        public string withdraw;
+        private void WithdrawButton(object sender, RoutedEventArgs e)
         {
             //Removes the related quantity.
             try
             {
-                string extract = this.extract;
-                extract = ExtractBox.Text;
+                string withdraw = this.withdraw;
+                withdraw = WithdrawBox.Text;
 
-                EditFile.Balance -= Int32.Parse(extract);
+                EditFile.Balance -= Int32.Parse(withdraw);
                 EditFile.SaveDataToFile();
-                MessageBox.Show("Successfully extracted.");
+                MessageBox.Show("Successfully withdrawn.");
                 //Close the window.
                 this.Close();
             }
