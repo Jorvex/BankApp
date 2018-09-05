@@ -34,7 +34,7 @@ namespace BankApp
             content = User.Text;
 
             //If the user already exists, it will continue to the next window.
-            if (DataBaseFile.UserExists(content))
+            if (DataBaseFile.FindItem(content))
             {
                 EditFile.UserName = content;
                 EditFile.ReadFile();
@@ -43,28 +43,10 @@ namespace BankApp
                 operations.ShowDialog();
             }
             
-            //If not, it will ask for create a new one.
+            //If not, it will inform to use Register function.
             else
             {
-                MessageBoxResult Reply = MessageBox.Show("There are no matches in the database, do you want to create a new one?", "Log In", MessageBoxButton.YesNo);
-                switch (Reply)
-                {
-                    case MessageBoxResult.Yes:
-                        MessageBox.Show($"User created as {content}.");
-
-                        var lines_2 = File.ReadAllLines(DataBaseFile.DBFile).ToList();
-                        EditFile.UserName = content;
-                        lines_2.Add($"{content},{EditFile.Balance}");
-
-                        File.WriteAllLines(DataBaseFile.DBFile, lines_2);
-                        Operations_2 NewWindow = new Operations_2();
-                        this.Close();
-                        NewWindow.ShowDialog();
-                        break;
-
-                    case MessageBoxResult.No:
-                        break;
-                }
+                MessageBox.Show($"There are no matches using '{content}' as user, if you are not registered, use the Register function.", "Log In");
             }
 
         }

@@ -15,8 +15,8 @@
         <Label Content="Password: " HorizontalAlignment="Left" Margin="24,76,0,0" VerticalAlignment="Top" Height="26" Width="219" FontSize="14"/>
         <TextBox Name="User" TabIndex="1" HorizontalAlignment="Left" Height="21" Margin="30,36,0,0" VerticalAlignment="Top" Width="180"/>
         <PasswordBox Name="Psswd" TabIndex="2" HorizontalAlignment="Left" Margin="30,107,0,0" VerticalAlignment="Top" Width="180" Height="21"/>
-        <PasswordBox x:Name="ConfirmPsswd" TabIndex="3" HorizontalAlignment="Left" Margin="30,162,0,0" VerticalAlignment="Top" Width="180" Height="21"/>
-        <Button Content="Register" TabIndex="4" HorizontalAlignment="Left" Margin="247,167,0,0" VerticalAlignment="Top" Width="88" Height="26" Click="Confirm"/>
+        <PasswordBox Name="ConfirmPsswd" TabIndex="3" HorizontalAlignment="Left" Margin="30,162,0,0" VerticalAlignment="Top" Width="180" Height="21"/>
+        <Button Content="Register" TabIndex="4" HorizontalAlignment="Left" Margin="247,167,0,0" VerticalAlignment="Top" Width="88" Height="26" Click="RegisterBttn"/>
         <Label Content="Confirm Password: " HorizontalAlignment="Left" Margin="24,132,0,0" VerticalAlignment="Top" Height="30" Width="219" FontSize="14"/>
     </Grid>
 </Window>
