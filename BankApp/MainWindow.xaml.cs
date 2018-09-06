@@ -38,9 +38,20 @@ namespace BankApp
             {
                 EditFile.UserName = content;
                 EditFile.ReadFile();
-                Operations_2 operations = new Operations_2();
-                this.Close();
-                operations.ShowDialog();
+                if (Psswd.Password == EditFile.Password)
+                {
+                    Operations_2 operations = new Operations_2();
+                    this.Close();
+                    operations.ShowDialog();
+                }
+                if (Psswd.Password == "")
+                {
+                    MessageBox.Show("Please type your password.", "Error");
+                }
+                else
+                {
+                    MessageBox.Show("Incorrect Password","Error");
+                }
             }
             
             //If not, it will inform to use Register function.

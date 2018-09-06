@@ -36,37 +36,54 @@ namespace BankApp
             {
                 EditFile.UserName = user;
                 EditFile.ReadFile();
-                MessageBox.Show($"The user '{user}' already exists, please try with another one.");
+                MessageBox.Show($"The user '{user}' already exists, please try with another one.","Error");
             }
 
             else
             {
-                if (Psswd.Password != ConfirmPsswd.Password)
+                if (Psswd.Password == "" || ConfirmPsswd.Password == "")
                 {
-                    MessageBox.Show("The password does not match. Please try again.");
+                    MessageBox.Show("Please fill both password fields.", "Error");
                 }
 
-                if (Psswd.Password == ConfirmPsswd.Password)
+                else
                 {
-                    MessageBoxResult result = MessageBox.Show($"Are you sure you want to register as '{user}'? ", "Register", MessageBoxButton.YesNo);
-                    switch (result)
+                    if (Psswd.Password != ConfirmPsswd.Password)
                     {
-                        case MessageBoxResult.Yes:
-                            {
-                                var lines_2 = File.ReadAllLines(DataBaseFile.DBFile).ToList();
-                                EditFile.UserName = user;
-                                lines_2.Add($"{user},{EditFile.Balance}");
+                        MessageBox.Show("The password does not match. Please try again.", "Error");
+                    }
 
-                                File.WriteAllLines(DataBaseFile.DBFile, lines_2);
-                                Operations_2 NewWindow = new Operations_2();
-                                this.Close();
-                                NewWindow.ShowDialog();
-                                break;
-                            }
-                        case MessageBoxResult.No:
+                    else
+                    {
+                        if (ConfirmPsswd.Password.Length >= 6)
+                        {
+                            MessageBoxResult result = MessageBox.Show($"Are you sure you want to register as '{user}'? ", "Register", MessageBoxButton.YesNo);
+                            switch (result)
                             {
-                                break;
+                                case MessageBoxResult.Yes:
+                                {
+                                    var lines_2 = File.ReadAllLines(DataBaseFile.DBFile).ToList();
+                                    EditFile.UserName = user;
+                                    EditFile.Password = ConfirmPsswd.Password;
+                                    lines_2.Add($"{user},{EditFile.Balance},{ConfirmPsswd.Password}");
+
+                                    File.WriteAllLines(DataBaseFile.DBFile, lines_2);
+                                    Operations_2 NewWindow = new Operations_2();
+                                    this.Close();
+                                    NewWindow.ShowDialog();
+                                    break;
+                                }
+                                case MessageBoxResult.No:
+                                {
+                                    break;
+                                }
                             }
+                        }
+
+                        else
+                        {
+                            MessageBox.Show("The password does not contain the minimum of characters.", "Error");
+                        }
                     }
                 }
             }

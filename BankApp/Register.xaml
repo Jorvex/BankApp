@@ -13,6 +13,7 @@
         <Image Source="E:\Proyectos\Visual Studio\BankApp\BankApp\Logo.png" Margin="248,0,0,92" Height="87" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="87"/>
         <Label Content="Username: " HorizontalAlignment="Left" Margin="24,10,0,0" VerticalAlignment="Top" Height="26" Width="219" FontSize="14"/>
         <Label Content="Password: " HorizontalAlignment="Left" Margin="24,76,0,0" VerticalAlignment="Top" Height="26" Width="219" FontSize="14"/>
+        <Label Content="(8 digits minimum)" HorizontalAlignment="Left" Margin="90,78,0,0" VerticalAlignment="Top" Height="54" Width="120" FontSize="11"/>
         <TextBox Name="User" TabIndex="1" HorizontalAlignment="Left" Height="21" Margin="30,36,0,0" VerticalAlignment="Top" Width="180"/>
         <PasswordBox Name="Psswd" TabIndex="2" HorizontalAlignment="Left" Margin="30,107,0,0" VerticalAlignment="Top" Width="180" Height="21"/>
         <PasswordBox Name="ConfirmPsswd" TabIndex="3" HorizontalAlignment="Left" Margin="30,162,0,0" VerticalAlignment="Top" Width="180" Height="21"/>

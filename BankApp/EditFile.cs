@@ -22,7 +22,7 @@ namespace BankApp
             var parts = line.Split(',');
             string user = parts[0];
             Balance = double.Parse(parts[1]);
-            //string psswd = parts[3];
+            Password = parts[2];
         }
         //Saves all data in database file.
         public static void SaveDataToFile()
