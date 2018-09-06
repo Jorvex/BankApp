@@ -48,7 +48,7 @@ namespace BankApp
 
                 if (Psswd.Password == ConfirmPsswd.Password)
                 {
-                    MessageBoxResult result = MessageBox.Show($"Are you sure you want to register with username '{user}'? ", "Register", MessageBoxButton.YesNo);
+                    MessageBoxResult result = MessageBox.Show($"Are you sure you want to register as '{user}'? ", "Register", MessageBoxButton.YesNo);
                     switch (result)
                     {
                         case MessageBoxResult.Yes:
