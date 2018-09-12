@@ -32,6 +32,7 @@ namespace BankApp
             string user = this.Username;
             user = User.Text;
             
+            //Check if the user already exists.
             if (DataBaseFile.FindItem(user))
             {
                 EditFile.UserName = user;
@@ -39,6 +40,7 @@ namespace BankApp
                 MessageBox.Show($"The user '{user}' already exists, please try with another one.","Error");
             }
 
+            //Check if both fields are filled.
             else
             {
                 if (Psswd.Password == "" || ConfirmPsswd.Password == "")
@@ -48,6 +50,7 @@ namespace BankApp
 
                 else
                 {
+                    //Checks if the password matchs.
                     if (Psswd.Password != ConfirmPsswd.Password)
                     {
                         MessageBox.Show("The password does not match. Please try again.", "Error");
@@ -55,6 +58,7 @@ namespace BankApp
 
                     else
                     {
+                        //Check if the password meets the minimum length.
                         if (ConfirmPsswd.Password.Length >= 6)
                         {
                             MessageBoxResult result = MessageBox.Show($"Are you sure you want to register as '{user}'? ", "Register", MessageBoxButton.YesNo);
