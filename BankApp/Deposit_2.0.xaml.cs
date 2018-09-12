@@ -34,7 +34,7 @@ namespace BankApp
                 string deposit = this.deposit;
                 deposit = DepositBox.Text;
 
-                EditFile.Balance += Int32.Parse(deposit);
+                EditFile.Balance += Double.Parse(deposit);
                 EditFile.SaveDataToFile();
                 MessageBox.Show("Successfully deposited.");
                 //Close the window.

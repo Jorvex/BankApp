@@ -19,7 +19,7 @@ namespace BankApp
             var lines = File.ReadAllLines(DataBaseFile.DBFile).ToList();
             //The next line allows to only edit the current User that has logged in.
             string line = lines.FirstOrDefault(x => x.Contains(UserName));
-            var parts = line.Split(',');
+            var parts = line.Split('|');
             string user = parts[0];
             Balance = double.Parse(parts[1]);
             Password = parts[2];
@@ -34,12 +34,12 @@ namespace BankApp
             for (int i = 0; i < lines.Count; i++)
             {
                 var line = lines[i];
-                var parts = line.Split(',');
+                var parts = line.Split('|');
                 string user = parts[0];
 
                 if (user == UserName)
                 {
-                    line = $"{UserName},{Balance},{Password}";
+                    line = $"{UserName}|{Balance}|{Password}";
                     lines[i] = line;
                     break;
                 }

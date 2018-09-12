@@ -11,6 +11,7 @@ namespace BankApp
     {
         public string Name { get; set; }
         public double Balance { get; set; }
+        public string Password { get; set; }
 
         public override string ToString()
         {
@@ -19,11 +20,12 @@ namespace BankApp
 
         public static User Parse(string userLine)
         {
-            var parts = userLine.Split(',');
+            var parts = userLine.Split('|');
             return new User
             {
                 Name = parts[0],
-                Balance = double.Parse(parts[1])
+                Balance = double.Parse(parts[1]),
+                Password = parts[2]
             };
         }
 

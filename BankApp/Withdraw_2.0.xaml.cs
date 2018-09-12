@@ -34,7 +34,7 @@ namespace BankApp
                 string withdraw = this.withdraw;
                 withdraw = WithdrawBox.Text;
 
-                EditFile.Balance -= Int32.Parse(withdraw);
+                EditFile.Balance -= Double.Parse(withdraw);
                 EditFile.SaveDataToFile();
                 MessageBox.Show("Successfully withdrawn.");
                 //Close the window.

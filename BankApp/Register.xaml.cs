@@ -69,7 +69,7 @@ namespace BankApp
                                     var lines_2 = File.ReadAllLines(DataBaseFile.DBFile).ToList();
                                     EditFile.UserName = user;
                                     EditFile.Password = ConfirmPsswd.Password;
-                                    lines_2.Add($"{user},{EditFile.Balance},{ConfirmPsswd.Password}");
+                                    lines_2.Add($"{user}|{EditFile.Balance}|{ConfirmPsswd.Password}");
 
                                     File.WriteAllLines(DataBaseFile.DBFile, lines_2);
                                     Operations_2 NewWindow = new Operations_2();
@@ -91,6 +91,13 @@ namespace BankApp
                     }
                 }
             }
+        }
+
+        private void GoBackBttn(object sender, RoutedEventArgs e)
+        {
+            MainWindow main = new MainWindow();
+            this.Close();
+            main.ShowDialog();
         }
     }
 }
