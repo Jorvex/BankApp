@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.IO;
 
 namespace BankApp
 {
@@ -24,9 +25,68 @@ namespace BankApp
             InitializeComponent();
         }
 
-        private void Confirm(object sender, RoutedEventArgs e)
-        {
+        public string Username;
 
+        private void RegisterBttn(object sender, RoutedEventArgs e)
+        {
+            string user = this.Username;
+            user = User.Text;
+            
+            if (DataBaseFile.FindItem(user))
+            {
+                EditFile.UserName = user;
+                EditFile.ReadFile();
+                MessageBox.Show($"The user '{user}' already exists, please try with another one.","Error");
+            }
+
+            else
+            {
+                if (Psswd.Password == "" || ConfirmPsswd.Password == "")
+                {
+                    MessageBox.Show("Please fill both password fields.", "Error");
+                }
+
+                else
+                {
+                    if (Psswd.Password != ConfirmPsswd.Password)
+                    {
+                        MessageBox.Show("The password does not match. Please try again.", "Error");
+                    }
+
+                    else
+                    {
+                        if (ConfirmPsswd.Password.Length >= 6)
+                        {
+                            MessageBoxResult result = MessageBox.Show($"Are you sure you want to register as '{user}'? ", "Register", MessageBoxButton.YesNo);
+                            switch (result)
+                            {
+                                case MessageBoxResult.Yes:
+                                {
+                                    var lines_2 = File.ReadAllLines(DataBaseFile.DBFile).ToList();
+                                    EditFile.UserName = user;
+                                    EditFile.Password = ConfirmPsswd.Password;
+                                    lines_2.Add($"{user},{EditFile.Balance},{ConfirmPsswd.Password}");
+
+                                    File.WriteAllLines(DataBaseFile.DBFile, lines_2);
+                                    Operations_2 NewWindow = new Operations_2();
+                                    this.Close();
+                                    NewWindow.ShowDialog();
+                                    break;
+                                }
+                                case MessageBoxResult.No:
+                                {
+                                    break;
+                                }
+                            }
+                        }
+
+                        else
+                        {
+                            MessageBox.Show("The password does not contain the minimum of characters.", "Error");
+                        }
+                    }
+                }
+            }
         }
     }
 }

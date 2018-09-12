@@ -22,7 +22,7 @@ namespace BankApp
             }
         }
         //Checks the file for find users.
-        public static bool UserExists(string username)
+        public static bool FindItem(string username)
         {
             var lines = File.ReadAllLines(DataBaseFile.DBFile).ToList();
             return lines.Any(x => x.Contains(username));
