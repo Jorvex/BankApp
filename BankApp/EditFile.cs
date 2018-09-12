@@ -39,7 +39,7 @@ namespace BankApp
 
                 if (user == UserName)
                 {
-                    line = $"{UserName},{Balance}";
+                    line = $"{UserName},{Balance},{Password}";
                     lines[i] = line;
                     break;
                 }

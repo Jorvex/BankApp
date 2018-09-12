@@ -27,16 +27,16 @@ namespace BankApp
             InitializeComponent();
         }
         //Create this variable for manage the TextBox.
-        public string content;
+        public string user;
         private void LogInButton(object sender, RoutedEventArgs e)
         {
-            string content = this.content;
-            content = User.Text;
+            string user = this.user;
+            user = User.Text;
 
             //If the user already exists, it will continue to the next window.
-            if (DataBaseFile.FindItem(content))
+            if (DataBaseFile.FindItem(user))
             {
-                EditFile.UserName = content;
+                EditFile.UserName = user;
                 EditFile.ReadFile();
                 if (Psswd.Password == EditFile.Password)
                 {
@@ -44,22 +44,23 @@ namespace BankApp
                     this.Close();
                     operations.ShowDialog();
                 }
-                if (Psswd.Password == "")
-                {
-                    MessageBox.Show("Please type your password.", "Error");
-                }
                 else
                 {
-                    MessageBox.Show("Incorrect Password","Error");
+                    if (Psswd.Password == "")
+                    {
+                        MessageBox.Show("Please type your password.", "Error");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Incorrect Password", "Error");
+                    }
                 }
             }
-            
             //If not, it will inform to use Register function.
             else
             {
-                MessageBox.Show($"There are no matches using '{content}' as user, if you are not registered, use the Register function.", "Log In");
+                MessageBox.Show($"There are no matches using '{user}' as user, if you are not registered, use the Register function.", "Log In");
             }
-
         }
         private void RegisterButton(object sender, RoutedEventArgs e)
         {
