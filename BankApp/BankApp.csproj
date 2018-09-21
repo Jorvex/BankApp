@@ -91,6 +91,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="BankAppDBDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BankAppDBDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Deposit_2.0.xaml.cs">
       <DependentUpon>Deposit_2.0.xaml</DependentUpon>
     </Compile>
@@ -161,6 +166,17 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="BankAppDBDataSet.xsc">
+      <DependentUpon>BankAppDBDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="BankAppDBDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>BankAppDBDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="BankAppDBDataSet.xss">
+      <DependentUpon>BankAppDBDataSet.xsd</DependentUpon>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

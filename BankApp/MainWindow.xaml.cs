@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.IO;
+using System.Data.SqlClient;
 
 namespace BankApp
 {
@@ -23,13 +24,27 @@ namespace BankApp
     {
         public MainWindow()
         {
-            DataBaseFile database = new DataBaseFile();
+            DataBaseFile.OpenConnection();
+            //DataBaseFile database = new DataBaseFile();
             InitializeComponent();
         }
         //Create this variable for manage the TextBox.
         public string user;
+        
         private void LogInButton(object sender, RoutedEventArgs e)
         {
+            string connectionString = ("Data Source=MSI-JORDI\\SQLEXPRESS;Initial Catalog = BankAppDB; Integrated Security = True");
+            SqlConnection conn = new SqlConnection(connectionString);
+
+            SqlCommand checkUser = new SqlCommand("Select UserName From UserInfo", conn);
+            conn.Open();
+            string command = checkUser.ExecuteScalar().ToString();
+
+            if (command == User.Text)
+            {
+                MessageBox.Show("It Works!!");
+            }
+            /*
             string user = this.user;
             user = User.Text;
 
@@ -60,7 +75,7 @@ namespace BankApp
             else
             {
                 MessageBox.Show($"There are no matches using '{user}' as user, if you are not registered, use the Register function.", "Log In");
-            }
+            }*/
         }
         private void RegisterButton(object sender, RoutedEventArgs e)
         {

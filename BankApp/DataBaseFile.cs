@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.IO;
+using System.Data.SqlClient;
 
 namespace BankApp
 {
@@ -26,6 +28,12 @@ namespace BankApp
         {
             var lines = File.ReadAllLines(DataBaseFile.DBFile).ToList();
             return lines.Any(x => x.Contains(username));
+        }
+
+        public static void OpenConnection()
+        {
+            
+            
         }
     }
 }
