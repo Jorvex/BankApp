@@ -29,11 +29,5 @@ namespace BankApp
             var lines = File.ReadAllLines(DataBaseFile.DBFile).ToList();
             return lines.Any(x => x.Contains(username));
         }
-
-        public static void OpenConnection()
-        {
-            
-            
-        }
     }
 }
