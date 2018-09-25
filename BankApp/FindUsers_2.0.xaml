@@ -12,8 +12,7 @@
         </Grid.Background>
         <Label Content="Users" HorizontalAlignment="Left" Margin="23,30,0,0" VerticalAlignment="Top" Height="84" Width="426" FontSize="24"/>
         <Label Content="Here you can see available users:" HorizontalAlignment="Left" Margin="23,92,0,0" VerticalAlignment="Top" Height="38" Width="412" FontSize="16"/>
-        <Button Content="Close" TabIndex="2" HorizontalAlignment="Left" Margin="379,345,0,0" VerticalAlignment="Top" Width="106" Height="33" FontSize="16" Click="CloseButton"/>
-        <ListBox Name="userListBox" TabIndex="1" HorizontalAlignment="Left" Height="242" Margin="59,153,0,0" VerticalAlignment="Top" Width="186" FontSize="16" SelectionChanged="UserListBox_SelectionChanged"/>
-        <Label Name="selectedUserLabel" Content="" HorizontalAlignment="Left" Margin="314,171,0,0" VerticalAlignment="Top" Height="60" Width="234" FontSize="36"/>
+        <Button Content="Close" TabIndex="2" HorizontalAlignment="Left" Margin="423,345,0,0" VerticalAlignment="Top" Width="106" Height="33" FontSize="16" Click="CloseButton"/>
+        <ListBox Name="userListBox" TabIndex="1" HorizontalAlignment="Left" Height="242" Margin="59,153,0,0" VerticalAlignment="Top" Width="298" FontSize="18"/>
     </Grid>
 </Window>

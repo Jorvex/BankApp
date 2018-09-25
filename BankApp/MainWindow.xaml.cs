@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.IO;
+using System.Data.SqlClient;
 
 namespace BankApp
 {
@@ -23,43 +24,44 @@ namespace BankApp
     {
         public MainWindow()
         {
-            DataBaseFile database = new DataBaseFile();
+            //DataBaseFile database = new DataBaseFile();
             InitializeComponent();
         }
         //Create this variable for manage the TextBox.
-        public string user;
+        public static string UserName { get; set; }
+
         private void LogInButton(object sender, RoutedEventArgs e)
         {
-            string user = this.user;
-            user = User.Text;
+            string connectionString = ("Data Source=MSI-JORDI\\SQLEXPRESS;Initial Catalog = BankAppDB; Integrated Security = True");
+            SqlConnection conn = new SqlConnection(connectionString);
+            conn.Open();
 
-            //If the user already exists, it will continue to the next window.
-            if (DataBaseFile.FindItem(user))
+            UserName = User.Text;
+
+            SqlCommand checkUser = new SqlCommand("Select Count (UserName) From UserInfo Where UserName='" + UserName + "';", conn);
+            string command = checkUser.ExecuteScalar().ToString();
+            
+            if (command == "0")
             {
-                EditFile.UserName = user;
-                EditFile.ReadFile();
-                if (Psswd.Password == EditFile.Password)
+                MessageBox.Show("This username doesn't exists, make sure you have wrote it correctly.");
+            }
+
+            else
+            {
+                SqlCommand checkPassword = new SqlCommand("Select Password From UserInfo Where UserName='" + User.Text + "';", conn);
+                string command2 = checkPassword.ExecuteScalar().ToString();
+
+                if (Psswd.Password == command2)
                 {
                     Operations_2 operations = new Operations_2();
                     this.Close();
                     operations.ShowDialog();
                 }
+
                 else
                 {
-                    if (Psswd.Password == "")
-                    {
-                        MessageBox.Show("Please type your password.", "Error");
-                    }
-                    else
-                    {
-                        MessageBox.Show("Incorrect Password", "Error");
-                    }
+                    MessageBox.Show("Incorrect password, make sure you have wrote it correctly.");
                 }
-            }
-            //If not, it will inform to use Register function.
-            else
-            {
-                MessageBox.Show($"There are no matches using '{user}' as user, if you are not registered, use the Register function.", "Log In");
             }
         }
         private void RegisterButton(object sender, RoutedEventArgs e)

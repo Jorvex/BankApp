@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Data.SqlClient;
 
 namespace BankApp
 {
@@ -23,19 +24,30 @@ namespace BankApp
         {
             InitializeComponent();
             //Create a list and adds all users detected on DB file to this list.
-            UserList.UsersList().ToList().ForEach(u => userListBox.Items.Add(u));
+
+            string connectionString = ("Data Source=MSI-JORDI\\SQLEXPRESS;Initial Catalog = BankAppDB; Integrated Security = True");
+            SqlConnection conn = new SqlConnection(connectionString);
+            conn.Open();
+
+            string command = "Select UserName From UserInfo;";
+            SqlCommand checkUser = new SqlCommand(command, conn);
+            SqlDataReader reader = checkUser.ExecuteReader();
+
+            userListBox.Items.Clear();
+
+            while (reader.Read())
+            {
+                userListBox.Items.Add(reader.GetString(0));
+            }
+
+            reader.Close();
+            conn.Close();
+            userListBox.EndInit();
         }
         //Close the window.
         private void CloseButton(object sender, RoutedEventArgs e)
         {
             this.Close();
-        }
-        //When you click on a name in the list box, a label with null value next to it will change to the name.
-        private void UserListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            var listbox = sender as ListBox;
-            var user = listbox.SelectedItem as User;
-            selectedUserLabel.Content = user.Name;
         }
     }
 }

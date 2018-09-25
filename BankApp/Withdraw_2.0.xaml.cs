@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Data.SqlClient;
 
 namespace BankApp
 {
@@ -25,25 +26,26 @@ namespace BankApp
         }
 
         //Manages withdraw button.
-        public string withdraw;
         private void WithdrawButton(object sender, RoutedEventArgs e)
         {
             //Removes the related quantity.
             try
             {
-                string withdraw = this.withdraw;
-                withdraw = WithdrawBox.Text;
+                string connectionString = ("Data Source=MSI-JORDI\\SQLEXPRESS;Initial Catalog = BankAppDB; Integrated Security = True");
+                SqlConnection conn = new SqlConnection(connectionString);
+                conn.Open();
 
-                EditFile.Balance -= Double.Parse(withdraw);
-                EditFile.SaveDataToFile();
-                MessageBox.Show("Successfully withdrawn.");
-                //Close the window.
+                SqlCommand addValue = new SqlCommand("Update UserInfo Set Balance= Balance - '" + (WithdrawBox.Text) +
+                "' Where UserName= '" + (MainWindow.UserName) + "'", conn);
+                addValue.ExecuteNonQuery();
+                MessageBox.Show("Transaction complete.","Withdraw");
+                conn.Close();
                 this.Close();
             }
             //If in TextBox there are not only numbers, will appear a error message.
-            catch (FormatException)
+            catch (SqlException)
             {
-                MessageBox.Show("Incorrect format! Please, type only numbers.");
+                MessageBox.Show("Incorrect format! Please type only numbers.");
             }
         }
         //Close the window.
