@@ -38,7 +38,7 @@ namespace BankApp
                 SqlCommand addValue = new SqlCommand("Update UserInfo Set Balance= Balance - '" + (WithdrawBox.Text) +
                 "' Where UserName= '" + (MainWindow.UserName) + "'", conn);
                 addValue.ExecuteNonQuery();
-                MessageBox.Show("Transaction complete.","Withdraw");
+                MessageBox.Show("Operation complete.","Withdraw");
                 conn.Close();
                 this.Close();
             }

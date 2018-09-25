@@ -38,7 +38,8 @@ namespace BankApp
                 SqlCommand addValue = new SqlCommand("Update UserInfo Set Balance= Balance + '" + (DepositBox.Text) + 
                 "' Where UserName= '" + (MainWindow.UserName) + "'", conn);
                 addValue.ExecuteNonQuery();
-                MessageBox.Show("Transaction complete.","Deposit");
+                MessageBox.Show("Operation complete.","Deposit");
+                conn.Close();
                 this.Close();
             }
             //If in TextBox there are not only numbers, will appear a error message.
