@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.IO;
+using System.Data.SqlClient;
 
 namespace BankApp
 {
@@ -25,74 +26,55 @@ namespace BankApp
             InitializeComponent();
         }
 
-        public string Username;
-
         private void RegisterBttn(object sender, RoutedEventArgs e)
         {
-            string user = this.Username;
-            user = User.Text;
-            
-            //Check if the user already exists.
-            if (DataBaseFile.FindItem(user))
-            {
-                EditFile.UserName = user;
-                EditFile.ReadFile();
-                MessageBox.Show($"The user '{user}' already exists, please try with another one.","Error");
-            }
+            string connectionString = ("Data Source=MSI-JORDI\\SQLEXPRESS;Initial Catalog = BankAppDB; Integrated Security = True");
+            SqlConnection conn = new SqlConnection(connectionString);
+            conn.Open();
+            SqlCommand checkUser = new SqlCommand("Select Count (UserName) From UserInfo Where UserName='" + User.Text + "';", conn);
+            string command = checkUser.ExecuteScalar().ToString();
 
-            //Check if both fields are filled.
+            if (command == "1")
+            {
+                MessageBox.Show("This username already exists, please try with another one.");
+            }
+            
             else
             {
-                if (Psswd.Password == "" || ConfirmPsswd.Password == "")
+                if (ConfirmPsswd.Password.Length < 6)
                 {
-                    MessageBox.Show("Please fill both password fields.", "Error");
+                    MessageBox.Show("The password lenght is less than 6 characters, please try again.");
                 }
 
                 else
                 {
-                    //Checks if the password matchs.
-                    if (Psswd.Password != ConfirmPsswd.Password)
+                    if (Psswd.Password == ConfirmPsswd.Password)
                     {
-                        MessageBox.Show("The password does not match. Please try again.", "Error");
-                    }
+                        MessageBoxResult result = MessageBox.Show("Are you sure do you want to create this user?", "Register", MessageBoxButton.YesNo);
+                        switch (result)
+                        {
+                            case MessageBoxResult.Yes:
+                                SqlCommand createUser = new SqlCommand("Insert Into UserInfo (UserName, Balance, Password) Values" +
+                                    " ('" + User.Text + "', '0', '" + ConfirmPsswd.Password + "')", conn);
+                                createUser.ExecuteNonQuery();
+                                Operations_2 operations = new Operations_2();
+                                conn.Close();
+                                this.Close();
+                                operations.ShowDialog();
+                                break;
 
+                            case MessageBoxResult.No:
+                                break;
+                        }
+                    }
                     else
                     {
-                        //Check if the password meets the minimum length.
-                        if (ConfirmPsswd.Password.Length >= 6)
-                        {
-                            MessageBoxResult result = MessageBox.Show($"Are you sure you want to register as '{user}'? ", "Register", MessageBoxButton.YesNo);
-                            switch (result)
-                            {
-                                case MessageBoxResult.Yes:
-                                {
-                                    var lines_2 = File.ReadAllLines(DataBaseFile.DBFile).ToList();
-                                    EditFile.UserName = user;
-                                    EditFile.Password = ConfirmPsswd.Password;
-                                    lines_2.Add($"{user}|{EditFile.Balance}|{ConfirmPsswd.Password}");
-
-                                    File.WriteAllLines(DataBaseFile.DBFile, lines_2);
-                                    Operations_2 NewWindow = new Operations_2();
-                                    this.Close();
-                                    NewWindow.ShowDialog();
-                                    break;
-                                }
-                                case MessageBoxResult.No:
-                                {
-                                    break;
-                                }
-                            }
-                        }
-
-                        else
-                        {
-                            MessageBox.Show("The password does not contain the minimum of characters.", "Error");
-                        }
+                        MessageBox.Show("The password doesn't match, make sure you have wrote it correctly.");
                     }
                 }
             }
+            conn.Close();
         }
-
         private void GoBackBttn(object sender, RoutedEventArgs e)
         {
             MainWindow main = new MainWindow();

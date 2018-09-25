@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Data.SqlClient;
 
 namespace BankApp
 {
@@ -39,7 +40,16 @@ namespace BankApp
         //Shows the current Balance of the user.
         private void BalanceButton(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show($"{EditFile.UserName}, your current balance is: {EditFile.Balance}€.");
+            string connectionString = ("Data Source=MSI-JORDI\\SQLEXPRESS;Initial Catalog = BankAppDB; Integrated Security = True");
+            SqlConnection conn = new SqlConnection(connectionString);
+            conn.Open();
+
+            SqlCommand checkUser = new SqlCommand("Select UserName From UserInfo Where UserName='" + MainWindow.UserName + "';", conn);
+            SqlCommand checkBalance = new SqlCommand("Select Balance From UserInfo Where UserName='" + MainWindow.UserName + "';", conn);
+            string user = checkUser.ExecuteScalar().ToString();
+            string balance = checkBalance.ExecuteScalar().ToString();
+            conn.Close();
+            MessageBox.Show($"{user}, your current balance is: {balance}€.","User Information");
         }
         //Runs the FindUsers window.
         private void UsersButton(object sender, RoutedEventArgs e)

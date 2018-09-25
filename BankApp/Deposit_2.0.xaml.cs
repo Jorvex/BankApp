@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Data.SqlClient;
 
 namespace BankApp
 {
@@ -25,25 +26,25 @@ namespace BankApp
         }
         
         //Manages deposit button.
-        public string deposit;
         private void DepositButton(object sender, RoutedEventArgs e)
         {
             //Adds the related quantity.
             try
             {
-                string deposit = this.deposit;
-                deposit = DepositBox.Text;
+                string connectionString = ("Data Source=MSI-JORDI\\SQLEXPRESS;Initial Catalog = BankAppDB; Integrated Security = True");
+                SqlConnection conn = new SqlConnection(connectionString);
+                conn.Open();
 
-                EditFile.Balance += Double.Parse(deposit);
-                EditFile.SaveDataToFile();
-                MessageBox.Show("Successfully deposited.");
-                //Close the window.
+                SqlCommand addValue = new SqlCommand("Update UserInfo Set Balance= Balance + '" + (DepositBox.Text) + 
+                "' Where UserName= '" + (MainWindow.UserName) + "'", conn);
+                addValue.ExecuteNonQuery();
+                MessageBox.Show("Transaction complete.","Deposit");
                 this.Close();
             }
             //If in TextBox there are not only numbers, will appear a error message.
-            catch (FormatException)
+            catch (SqlException)
             {
-                MessageBox.Show("Incorrect format! Please, type only numbers.");
+                MessageBox.Show("Incorrect format! Please type only numbers.","Error");
             }
         }
         //Close the window.
