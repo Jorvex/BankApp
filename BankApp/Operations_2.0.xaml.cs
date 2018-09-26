@@ -44,12 +44,26 @@ namespace BankApp
             SqlConnection conn = new SqlConnection(connectionString);
             conn.Open();
 
-            SqlCommand checkUser = new SqlCommand("Select UserName From UserInfo Where UserName='" + MainWindow.UserName + "';", conn);
-            SqlCommand checkBalance = new SqlCommand("Select Balance From UserInfo Where UserName='" + MainWindow.UserName + "';", conn);
-            string user = checkUser.ExecuteScalar().ToString();
-            string balance = checkBalance.ExecuteScalar().ToString();
+            SqlCommand logInUser = new SqlCommand("Select UserName From UserInfo Where UserName='" + MainWindow.UserName + "';", conn);
+            SqlCommand registerUser = new SqlCommand("Select UserName From UserInfo Where UserName='" + Register.UserName + "';", conn);
+            SqlCommand logInBalance = new SqlCommand("Select Balance From UserInfo Where UserName='" + MainWindow.UserName + "';", conn);
+            SqlCommand registerBalance = new SqlCommand("Select Balance From UserInfo Where UserName='" + Register.UserName + "';", conn);
+            
+            if (MainWindow.UserName == null)
+            {
+                string r_user = registerUser.ExecuteScalar().ToString();
+                string r_balance = registerBalance.ExecuteScalar().ToString();
+                MessageBox.Show($"{r_user}, your current balance is: {r_balance}€.", "User Information");
+            }
+            
+            else
+            {
+                string l_user = logInUser.ExecuteScalar().ToString();
+                string l_balance = logInBalance.ExecuteScalar().ToString();
+                MessageBox.Show($"{l_user}, your current balance is: {l_balance}€.", "User Information");
+            }
+
             conn.Close();
-            MessageBox.Show($"{user}, your current balance is: {balance}€.","User Information");
         }
         //Runs the FindUsers window.
         private void UsersButton(object sender, RoutedEventArgs e)

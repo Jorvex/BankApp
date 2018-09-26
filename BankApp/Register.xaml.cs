@@ -25,9 +25,12 @@ namespace BankApp
         {
             InitializeComponent();
         }
+        public static string UserName { get; set; }
 
         private void RegisterBttn(object sender, RoutedEventArgs e)
         {
+            UserName = User.Text;
+
             string connectionString = ("Data Source=MSI-JORDI\\SQLEXPRESS;Initial Catalog = BankAppDB; Integrated Security = True");
             SqlConnection conn = new SqlConnection(connectionString);
             conn.Open();
@@ -50,7 +53,7 @@ namespace BankApp
                 {
                     if (Psswd.Password == ConfirmPsswd.Password)
                     {
-                        MessageBoxResult result = MessageBox.Show("Are you sure do you want to create this user?", "Register", MessageBoxButton.YesNo);
+                        MessageBoxResult result = MessageBox.Show($"Are you sure do you want to create the user: {User.Text}?", "Register", MessageBoxButton.YesNo);
                         switch (result)
                         {
                             case MessageBoxResult.Yes:
