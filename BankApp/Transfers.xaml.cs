@@ -59,59 +59,66 @@ namespace BankApp
             SqlCommand registerBalance = new SqlCommand("Select Balance From UserInfo Where UserName='" + Register.UserName + "';", conn);
             if (user != null)
             {
-                try
+                if (user == MainWindow.UserName)
                 {
-                    if (MainWindow.UserName == null)
-                    {
-                        MessageBoxResult message = MessageBox.Show($"Are you sure do you want to transfer {t_Balance.Text}€ to {Register.UserName}?", "Transfer", MessageBoxButton.YesNo);
-                        switch (message)
-                        {
-                            case MessageBoxResult.Yes:
-                                string r_user = registerUser.ExecuteScalar().ToString();
-                                string r_balance = registerBalance.ExecuteScalar().ToString();
-                                SqlCommand transfer_1 = new SqlCommand("Update UserInfo Set Balance= Balance - '" + (t_Balance.Text) +
-                                "' Where UserName= '" + (Register.UserName) + "'", conn);
-                                SqlCommand transfer_2 = new SqlCommand("Update UserInfo Set Balance= Balance + '" + (t_Balance.Text) +
-                                "' Where UserName= '" + (user) + "'", conn);
-                                transfer_1.ExecuteNonQuery();
-                                transfer_2.ExecuteNonQuery();
-                                MessageBox.Show("Transfer completed.");
-                                this.Close();
-                                break;
-
-                            case MessageBoxResult.No:
-                                break;
-                        }
-                    }
-
-                    else
-                    {
-                        MessageBoxResult message = MessageBox.Show($"Are you sure do you want to transfer {t_Balance.Text}€ to {MainWindow.UserName}?", "Transfer", MessageBoxButton.YesNo);
-                        switch (message)
-                        {
-                            case MessageBoxResult.Yes:
-                                string l_user = logInUser.ExecuteScalar().ToString();
-                                string l_balance = logInBalance.ExecuteScalar().ToString();
-                                SqlCommand transfer_1 = new SqlCommand("Update UserInfo Set Balance= Balance - '" + (t_Balance.Text) +
-                                "' Where UserName= '" + (MainWindow.UserName) + "'", conn);
-                                SqlCommand transfer_2 = new SqlCommand("Update UserInfo Set Balance= Balance + '" + (t_Balance.Text) +
-                                "' Where UserName= '" + (user) + "'", conn);
-                                transfer_1.ExecuteNonQuery();
-                                transfer_2.ExecuteNonQuery();
-                                MessageBox.Show("Transfer completed.");
-                                this.Close();
-                                break;
-
-                            case MessageBoxResult.No:
-                                break;
-                        }
-                    }
-                }
-                catch(SqlException)
-                {
-                    MessageBox.Show("Incorrect format! Please type only numbers.","Error");
+                    MessageBox.Show("You're not able to transfer money to yourself.","Error");
                 }
 
+                else
+                {
+                    try
+                    {
+                        if (MainWindow.UserName == null)
+                        {
+                            MessageBoxResult message = MessageBox.Show($"Are you sure do you want to transfer {t_Balance.Text}€ to {user}?", "Transfer", MessageBoxButton.YesNo);
+                            switch (message)
+                            {
+                                case MessageBoxResult.Yes:
+                                    string r_user = registerUser.ExecuteScalar().ToString();
+                                    string r_balance = registerBalance.ExecuteScalar().ToString();
+                                    SqlCommand transfer_1 = new SqlCommand("Update UserInfo Set Balance= Balance - '" + (t_Balance.Text) +
+                                    "' Where UserName= '" + (Register.UserName) + "'", conn);
+                                    SqlCommand transfer_2 = new SqlCommand("Update UserInfo Set Balance= Balance + '" + (t_Balance.Text) +
+                                    "' Where UserName= '" + (user) + "'", conn);
+                                    transfer_1.ExecuteNonQuery();
+                                    transfer_2.ExecuteNonQuery();
+                                    MessageBox.Show("Transfer completed.");
+                                    this.Close();
+                                    break;
+
+                                case MessageBoxResult.No:
+                                    break;
+                            }
+                        }
+
+                        else
+                        {
+                            MessageBoxResult message = MessageBox.Show($"Are you sure do you want to transfer {t_Balance.Text}€ to '{user}' user?", "Transfer", MessageBoxButton.YesNo);
+                            switch (message)
+                            {
+                                case MessageBoxResult.Yes:
+                                    string l_user = logInUser.ExecuteScalar().ToString();
+                                    string l_balance = logInBalance.ExecuteScalar().ToString();
+                                    SqlCommand transfer_1 = new SqlCommand("Update UserInfo Set Balance= Balance - '" + (t_Balance.Text) +
+                                    "' Where UserName= '" + (MainWindow.UserName) + "'", conn);
+                                    SqlCommand transfer_2 = new SqlCommand("Update UserInfo Set Balance= Balance + '" + (t_Balance.Text) +
+                                    "' Where UserName= '" + (user) + "'", conn);
+                                    transfer_1.ExecuteNonQuery();
+                                    transfer_2.ExecuteNonQuery();
+                                    MessageBox.Show("Transfer completed.");
+                                    this.Close();
+                                    break;
+
+                                case MessageBoxResult.No:
+                                    break;
+                            }
+                        }
+                    }
+                    catch (SqlException)
+                    {
+                        MessageBox.Show("Incorrect format! Please type only numbers.", "Error");
+                    }
+                }
                 conn.Close();
             }
             else
