@@ -67,7 +67,7 @@ namespace BankApp
         //Runs the FindUsers window.
         private void UsersButton(object sender, RoutedEventArgs e)
         {
-            FindUsers_2 users = new FindUsers_2();
+            Transfers users = new Transfers();
             users.ShowDialog();
         }
     }

@@ -18,7 +18,7 @@
         <Label Content="Withdraw the selected quantity." HorizontalAlignment="Left" Margin="483,229,0,0" VerticalAlignment="Top" Height="47" Width="288" FontSize="20"/>
         <Button Content="Show Balance" TabIndex="3" HorizontalAlignment="Left" Margin="120,355,0,0" VerticalAlignment="Top" Width="112" Height="50" FontSize="16" Click="BalanceButton"/>
         <Label Content="Show available balance on your account." HorizontalAlignment="Left" Margin="23,410,0,0" VerticalAlignment="Top" Height="46" Width="411" FontSize="20"/>
-        <Button Content="Users" TabIndex="4" HorizontalAlignment="Left" Margin="560,355,0,0" VerticalAlignment="Top" Width="112" FontSize="16" Height="50" Click="UsersButton"/>
-        <Label Content="See other users registered." HorizontalAlignment="Left" Margin="502,410,0,0" VerticalAlignment="Top" Height="47" Width="249" FontSize="20"/>
+        <Button Content="Transfers" TabIndex="4" HorizontalAlignment="Left" Margin="560,355,0,0" VerticalAlignment="Top" Width="112" FontSize="16" Height="50" Click="UsersButton"/>
+        <Label Content="Tranfer money to other users." HorizontalAlignment="Left" Margin="483,410,0,0" VerticalAlignment="Top" Height="47" Width="284" FontSize="20"/>
     </Grid>
 </Window>
