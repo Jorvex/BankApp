@@ -62,7 +62,6 @@ namespace BankApp
                 string l_balance = logInBalance.ExecuteScalar().ToString();
                 MessageBox.Show($"{l_user}, your current balance is: {l_balance}€.", "User Information");
             }
-
             conn.Close();
         }
         //Runs the FindUsers window.
