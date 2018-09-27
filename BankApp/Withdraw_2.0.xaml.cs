@@ -18,9 +18,9 @@ namespace BankApp
     /// <summary>
     /// Lógica de interacción para Withdraw_2.xaml
     /// </summary>
-    public partial class Withdraw_2 : Window
+    public partial class UserInfo_2 : Window
     {
-        public Withdraw_2()
+        public UserInfo_2()
         {
             InitializeComponent();
             WithdrawBox.Focus();

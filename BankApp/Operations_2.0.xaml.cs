@@ -34,7 +34,7 @@ namespace BankApp
         //Runs the Withdraw window.
         private void WithdrawButton(object sender, RoutedEventArgs e)
         {
-            Withdraw_2 withdraw = new Withdraw_2();
+            UserInfo_2 withdraw = new UserInfo_2();
             withdraw.ShowDialog();
         }
         //Shows the current Balance of the user.

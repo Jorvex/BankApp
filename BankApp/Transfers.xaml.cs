@@ -157,7 +157,7 @@ namespace BankApp
             }
             catch(Exception)
             {
-                MessageBox.Show("Please first select a user for do the transfer.", "Error");
+                MessageBox.Show("Please first select a user to do the transfer.", "Error");
             }
 
         }
