@@ -23,6 +23,7 @@ namespace BankApp
         public Withdraw_2()
         {
             InitializeComponent();
+            WithdrawBox.Focus();
         }
 
         //Manages withdraw button.

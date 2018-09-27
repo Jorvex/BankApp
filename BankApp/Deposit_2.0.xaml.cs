@@ -23,6 +23,7 @@ namespace BankApp
         public Deposit_2()
         {
             InitializeComponent();
+            DepositBox.Focus();
         }
         
         //Manages deposit button.

@@ -11,7 +11,7 @@
             <ImageBrush ImageSource="E:\Proyectos\Visual Studio\BankApp\BankApp\Background2.jpg"/>
         </Grid.Background>
         <Image Source="E:\Proyectos\Visual Studio\BankApp\BankApp\Logo.png" Margin="248,0,0,92" Height="87" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="87"/>
-        <Label Content="Username: " HorizontalAlignment="Left" Margin="24,17,0,0" VerticalAlignment="Top" Height="47" Width="219" FontSize="18"/>
+        <Label Content="Username: " HorizontalAlignment="Left" Margin="24,17,0,0" VerticalAlignment="Top" Height="33" Width="219" FontSize="18"/>
         <Label Content="Password: " HorizontalAlignment="Left" Margin="24,77,0,0" VerticalAlignment="Top" Height="47" Width="219" FontSize="18"/>
         <TextBox Name="User" HorizontalAlignment="Left" Height="27" Margin="30,50,0,0" VerticalAlignment="Top" Width="180" FontSize="16"/>
         <PasswordBox Name="Psswd" HorizontalAlignment="Left" Margin="30,112,0,0" VerticalAlignment="Top" FontSize="15" Width="180" Height="28"/>

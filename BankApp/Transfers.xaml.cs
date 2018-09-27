@@ -23,7 +23,7 @@ namespace BankApp
         public Transfers()
         {
             InitializeComponent();
-            //Create a list and adds all users detected on DB file to this list.
+            t_Balance.Focus();
 
             string connectionString = ("Data Source=MSI-JORDI\\SQLEXPRESS;Initial Catalog = BankAppDB; Integrated Security = True");
             SqlConnection conn = new SqlConnection(connectionString);
@@ -47,18 +47,18 @@ namespace BankApp
 
         private void TransferButton(object sender, RoutedEventArgs e)
         {
-            string user = userListBox.SelectedItem.ToString();
-
-            string connectionString = ("Data Source=MSI-JORDI\\SQLEXPRESS;Initial Catalog = BankAppDB; Integrated Security = True");
-            SqlConnection conn = new SqlConnection(connectionString);
-            conn.Open();
-
-            SqlCommand logInUser = new SqlCommand("Select UserName From UserInfo Where UserName='" + MainWindow.UserName + "';", conn);
-            SqlCommand registerUser = new SqlCommand("Select UserName From UserInfo Where UserName='" + Register.UserName + "';", conn);
-            SqlCommand logInBalance = new SqlCommand("Select Balance From UserInfo Where UserName='" + MainWindow.UserName + "';", conn);
-            SqlCommand registerBalance = new SqlCommand("Select Balance From UserInfo Where UserName='" + Register.UserName + "';", conn);
-            if (user != null)
+            try
             {
+                string connectionString = ("Data Source=MSI-JORDI\\SQLEXPRESS;Initial Catalog = BankAppDB; Integrated Security = True");
+                SqlConnection conn = new SqlConnection(connectionString);
+                conn.Open();
+
+                SqlCommand logInUser = new SqlCommand("Select UserName From UserInfo Where UserName='" + MainWindow.UserName + "';", conn);
+                SqlCommand registerUser = new SqlCommand("Select UserName From UserInfo Where UserName='" + Register.UserName + "';", conn);
+                SqlCommand logInBalance = new SqlCommand("Select Balance From UserInfo Where UserName='" + MainWindow.UserName + "';", conn);
+                SqlCommand registerBalance = new SqlCommand("Select Balance From UserInfo Where UserName='" + Register.UserName + "';", conn);
+                
+                string user = userListBox.SelectedItem.ToString();
                 if (user != MainWindow.UserName)
                 {
                     if (MainWindow.UserName == null)
@@ -150,14 +150,16 @@ namespace BankApp
                 }
                 else
                 {
-                    MessageBox.Show("You're not able to transfer money to yourself.","Error");
+                    MessageBox.Show("You're not able to transfer money to yourself.", "Error");
                 }
                 conn.Close();
+                
             }
-            else
+            catch(Exception)
             {
-                MessageBox.Show("Please first select a user for do the transfer.","Error");
+                MessageBox.Show("Please first select a user for do the transfer.", "Error");
             }
+
         }
 
         //Close the window.

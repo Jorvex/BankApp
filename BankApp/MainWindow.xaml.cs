@@ -26,6 +26,7 @@ namespace BankApp
         {
             //DataBaseFile database = new DataBaseFile();
             InitializeComponent();
+            User.Focus();
         }
         //Create this variable for manage the TextBox.
         public static string UserName { get; set; }
