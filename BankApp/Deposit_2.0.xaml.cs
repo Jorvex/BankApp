@@ -28,24 +28,55 @@ namespace BankApp
         //Manages deposit button.
         private void DepositButton(object sender, RoutedEventArgs e)
         {
-            //Adds the related quantity.
-            try
+            if (Register.UserName == null)
             {
-                string connectionString = ("Data Source=MSI-JORDI\\SQLEXPRESS;Initial Catalog = BankAppDB; Integrated Security = True");
-                SqlConnection conn = new SqlConnection(connectionString);
-                conn.Open();
-
-                SqlCommand addValue = new SqlCommand("Update UserInfo Set Balance= Balance + '" + (DepositBox.Text) + 
-                "' Where UserName= '" + (MainWindow.UserName) + "'", conn);
-                addValue.ExecuteNonQuery();
-                MessageBox.Show("Operation complete.","Deposit");
-                conn.Close();
-                this.Close();
+                try
+                {
+                    string connectionString = ("Data Source=MSI-JORDI\\SQLEXPRESS;Initial Catalog = BankAppDB; Integrated Security = True");
+                    SqlConnection conn = new SqlConnection(connectionString);
+                    conn.Open();
+                    SqlCommand addValue = new SqlCommand("Update UserInfo Set Balance= Balance + '" + (DepositBox.Text) +
+                    "' Where UserName= '" + (MainWindow.UserName) + "'", conn);
+                    addValue.ExecuteNonQuery();
+                    MessageBox.Show("Operation complete.", "Deposit");
+                    conn.Close();
+                    this.Close();
+                }
+                //If in TextBox there are not only numbers, will appear a error message.
+                catch (SqlException)
+                {
+                    MessageBox.Show("Incorrect format! Please type only numbers.", "Error");
+                }
+                catch (FormatException)
+                {
+                    MessageBox.Show("Incorrect format! Please type only numbers.", "Error");
+                }
             }
-            //If in TextBox there are not only numbers, will appear a error message.
-            catch (SqlException)
+            //Adds the related quantity.
+            else
             {
-                MessageBox.Show("Incorrect format! Please type only numbers.","Error");
+                //Removes the related quantity.
+                try
+                {
+                    string connectionString = ("Data Source=MSI-JORDI\\SQLEXPRESS;Initial Catalog = BankAppDB; Integrated Security = True");
+                    SqlConnection conn = new SqlConnection(connectionString);
+                    conn.Open();
+                    SqlCommand addValue = new SqlCommand("Update UserInfo Set Balance= Balance + '" + (DepositBox.Text) +
+                    "' Where UserName= '" + (Register.UserName) + "'", conn);
+                    addValue.ExecuteNonQuery();
+                    MessageBox.Show("Operation complete.", "Deposit");
+                    conn.Close();
+                    this.Close();
+                }
+                //If in TextBox there are not only numbers, will appear a error message.
+                catch (SqlException)
+                {
+                    MessageBox.Show("Incorrect format! Please type only numbers.", "Error");
+                }
+                catch (FormatException)
+                {
+                    MessageBox.Show("Incorrect format! Please type only numbers.", "Error");
+                }
             }
         }
         //Close the window.

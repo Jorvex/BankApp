@@ -15,8 +15,8 @@
         <Label Content="Balance to transfer:" HorizontalAlignment="Left" Margin="266,123,0,0" VerticalAlignment="Top" Height="38" Width="155" FontSize="16"/>
         <Label Content="€" HorizontalAlignment="Left" Margin="464,155,0,0" VerticalAlignment="Top" Height="39" Width="68" FontSize="24"/>
         <ListBox Name="userListBox" TabIndex="1" HorizontalAlignment="Left" Height="242" Margin="23,123,0,0" VerticalAlignment="Top" Width="207" FontSize="18"/>
-        <TextBox HorizontalAlignment="Left" Name="t_Balance" Height="36" Margin="272,160,0,0" TextWrapping="Wrap" FontSize="20" VerticalAlignment="Top" Width="193"/>
-        <Button Content="Close" TabIndex="2" HorizontalAlignment="Left" Margin="426,364,0,0" VerticalAlignment="Top" Width="106" Height="33" FontSize="16" Click="CloseButton"/>
-        <Button Content="Transfer" HorizontalAlignment="Left" Margin="272,237,0,0" VerticalAlignment="Top" FontSize="24" Width="193" Height="74" Click="TransferButton"/>
+        <TextBox HorizontalAlignment="Left" TabIndex="2" Name="t_Balance" Height="36" Margin="272,160,0,0" TextWrapping="Wrap" FontSize="20" VerticalAlignment="Top" Width="193"/>
+        <Button Content="Transfer" IsDefault="True" TabIndex="3" HorizontalAlignment="Left" Margin="272,237,0,0" VerticalAlignment="Top" FontSize="24" Width="193" Height="74" Click="TransferButton"/>
+        <Button Content="Close" TabIndex="4" HorizontalAlignment="Left" Margin="426,364,0,0" VerticalAlignment="Top" Width="106" Height="33" FontSize="16" Click="CloseButton"/>
     </Grid>
 </Window>

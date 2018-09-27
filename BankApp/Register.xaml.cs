@@ -53,12 +53,12 @@ namespace BankApp
                 {
                     if (Psswd.Password == ConfirmPsswd.Password)
                     {
-                        MessageBoxResult result = MessageBox.Show($"Are you sure do you want to create the user: {User.Text}?", "Register", MessageBoxButton.YesNo);
+                        MessageBoxResult result = MessageBox.Show($"Are you sure do you want to create the user '{Name.Text} {lastName.Text}' with '{User.Text}'?", "Register", MessageBoxButton.YesNo);
                         switch (result)
                         {
                             case MessageBoxResult.Yes:
-                                SqlCommand createUser = new SqlCommand("Insert Into UserInfo (UserName, Balance, Password) Values" +
-                                    " ('" + User.Text + "', '0', '" + ConfirmPsswd.Password + "')", conn);
+                                SqlCommand createUser = new SqlCommand("Insert Into UserInfo (Name, LastName, UserName, Balance, Password) Values" +
+                                    " ('" + Name.Text + "','"+ lastName.Text + "','" + User.Text + "', '0', '" + ConfirmPsswd.Password + "')", conn);
                                 createUser.ExecuteNonQuery();
                                 Operations_2 operations = new Operations_2();
                                 conn.Close();

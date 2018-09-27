@@ -5,20 +5,25 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BankApp"
         mc:Ignorable="d"
-        Title="Register" Height="250" Width="360">
+        Title="Register" Height="400" Width="400">
     <Grid>
         <Grid.Background>
             <ImageBrush ImageSource="E:\Proyectos\Visual Studio\BankApp\BankApp\Background2.jpg"/>
         </Grid.Background>
-        <Image Source="E:\Proyectos\Visual Studio\BankApp\BankApp\Logo.png" Margin="248,0,0,92" Height="87" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="87"/>
-        <Label Content="Username: " HorizontalAlignment="Left" Margin="24,10,0,0" VerticalAlignment="Top" Height="26" Width="219" FontSize="14"/>
-        <Label Content="Password: " HorizontalAlignment="Left" Margin="24,57,0,0" VerticalAlignment="Top" Height="26" Width="219" FontSize="14"/>
-        <Label Content="(6 digits minimum)" HorizontalAlignment="Left" Margin="90,60,0,0" VerticalAlignment="Top" Height="29" Width="120" FontSize="11"/>
-        <TextBox Name="User" TabIndex="1" HorizontalAlignment="Left" Height="21" Margin="30,36,0,0" VerticalAlignment="Top" Width="180"/>
-        <PasswordBox Name="Psswd" TabIndex="2" HorizontalAlignment="Left" Margin="30,88,0,0" VerticalAlignment="Top" Width="180" Height="21"/>
-        <PasswordBox Name="ConfirmPsswd" TabIndex="3" HorizontalAlignment="Left" Margin="30,139,0,0" VerticalAlignment="Top" Width="180" Height="21"/>
-        <Button Content="Register" TabIndex="4" HorizontalAlignment="Left" Margin="30,174,0,0" VerticalAlignment="Top" Width="88" Height="26" Click="RegisterBttn"/>
-        <Button Content="Cancel" TabIndex="4" HorizontalAlignment="Left" Margin="230,174,0,0" VerticalAlignment="Top" Width="88" Height="26" Click="GoBackBttn"/>
-        <Label Content="Confirm Password: " HorizontalAlignment="Left" Margin="24,109,0,0" VerticalAlignment="Top" Height="30" Width="219" FontSize="14"/>
+        <Image Source="E:\Proyectos\Visual Studio\BankApp\BankApp\Logo.png" Margin="262,0,0,243.4" Height="87" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="87"/>
+        <Label Content="Username: " HorizontalAlignment="Left" Margin="24,133,0,0" VerticalAlignment="Top" Height="26" Width="219" FontSize="14"/>
+        <Label Content="Password: " HorizontalAlignment="Left" Margin="24,201,0,0" VerticalAlignment="Top" Height="26" Width="219" FontSize="14"/>
+        <Label Content="(6 digits minimum)" HorizontalAlignment="Left" Margin="90,204,0,0" VerticalAlignment="Top" Height="29" Width="120" FontSize="11"/>
+        <TextBox Name="User" TabIndex="3" HorizontalAlignment="Left" Height="21" Margin="31,164,0,0" VerticalAlignment="Top" Width="180"/>
+        <PasswordBox Name="Psswd" TabIndex="4" HorizontalAlignment="Left" Margin="30,232,0,0" VerticalAlignment="Top" Width="180" Height="21"/>
+        <PasswordBox Name="ConfirmPsswd" TabIndex="5" HorizontalAlignment="Left" Margin="30,283,0,0" VerticalAlignment="Top" Width="180" Height="21"/>
+        <Button IsDefault="True" Content="Register" TabIndex="6" HorizontalAlignment="Left" FontSize="20" Margin="248,195,0,0" VerticalAlignment="Top" Width="118" Height="63" Click="RegisterBttn"/>
+        <Button Content="Cancel" TabIndex="7" Margin="262,312,41.6,0" VerticalAlignment="Top" Height="26" Width="90" Click="GoBackBttn"/>
+        <Label Content="Confirm Password: " HorizontalAlignment="Left" Margin="24,253,0,0" VerticalAlignment="Top" Height="30" Width="219" FontSize="14"/>
+        <Label Content="Name: " HorizontalAlignment="Left" Margin="24,17,0,0" VerticalAlignment="Top" Height="26" Width="59" FontSize="14"/>
+        <Label Content="Last Name: " HorizontalAlignment="Left" Margin="24,73,0,0" VerticalAlignment="Top" Height="26" Width="84" FontSize="14"/>
+        <TextBox Name="Name" TabIndex="1" HorizontalAlignment="Left" Height="21" Margin="30,48,0,0" VerticalAlignment="Top" Width="180"/>
+        <TextBox Name="lastName" TabIndex="2" HorizontalAlignment="Left" Height="21" Margin="30,106,0,0" VerticalAlignment="Top" Width="180"/>
+        <Label Content="(Used to log in)" HorizontalAlignment="Left" Margin="94,136,0,0" VerticalAlignment="Top" Height="29" Width="120" FontSize="11"/>
     </Grid>
 </Window>

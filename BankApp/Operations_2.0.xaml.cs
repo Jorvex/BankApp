@@ -44,8 +44,8 @@ namespace BankApp
             SqlConnection conn = new SqlConnection(connectionString);
             conn.Open();
 
-            SqlCommand logInUser = new SqlCommand("Select UserName From UserInfo Where UserName='" + MainWindow.UserName + "';", conn);
-            SqlCommand registerUser = new SqlCommand("Select UserName From UserInfo Where UserName='" + Register.UserName + "';", conn);
+            SqlCommand logInUser = new SqlCommand("Select Name From UserInfo Where UserName='" + MainWindow.UserName + "';", conn);
+            SqlCommand registerUser = new SqlCommand("Select Name From UserInfo Where UserName='" + Register.UserName + "';", conn);
             SqlCommand logInBalance = new SqlCommand("Select Balance From UserInfo Where UserName='" + MainWindow.UserName + "';", conn);
             SqlCommand registerBalance = new SqlCommand("Select Balance From UserInfo Where UserName='" + Register.UserName + "';", conn);
             
