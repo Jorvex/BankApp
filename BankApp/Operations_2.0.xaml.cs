@@ -24,6 +24,27 @@ namespace BankApp
         public Operations_2()
         {
             InitializeComponent();
+
+            string connectionString = ("Data Source=MSI-JORDI\\SQLEXPRESS;Initial Catalog = BankAppDB; Integrated Security = True");
+            SqlConnection conn = new SqlConnection(connectionString);
+            conn.Open();
+
+            InitializeComponent();
+            if (Register.UserName == null)
+            {
+                SqlCommand name = new SqlCommand("Select Name From UserInfo Where Username = '" + (MainWindow.UserName) + "';", conn);
+                string l_name = name.ExecuteScalar().ToString();
+                string introduction = ($"Welcome {l_name}!");
+                Welcome.Content = introduction;
+            }
+            else
+            {
+                SqlCommand name = new SqlCommand("Select Name From UserInfo Where Username = '" + (Register.UserName) + "';", conn);
+                string r_name = name.ExecuteScalar().ToString();
+                string introduction = ($"Welcome {r_name}!");
+                Welcome.Content = introduction;
+            }
+            conn.Close();
         }
         //Runs the Deposit window.
         private void DepositButton(object sender, RoutedEventArgs e)
