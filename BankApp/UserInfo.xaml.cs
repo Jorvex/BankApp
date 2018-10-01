@@ -30,27 +30,27 @@ namespace BankApp
             if (Register.UserName == null)
             {
                 SqlCommand name = new SqlCommand("Select Name From UserInfo Where Username = '" + (MainWindow.UserName) + "';",conn);
-                SqlCommand lastname = new SqlCommand("Select LastName From UserInfo Where Username = '" + (MainWindow.UserName) +"';", conn);
+                SqlCommand fullName = new SqlCommand("Select (Name + ' ' + LastName) From UserInfo Where Username = '" + (MainWindow.UserName) +"';", conn);
                 SqlCommand balance = new SqlCommand("Select Balance From UserInfo Where Username = '" + (MainWindow.UserName) + "';", conn);
                 string l_name = name.ExecuteScalar().ToString();
-                string l_lastname = lastname.ExecuteScalar().ToString();
+                string l_fullName = fullName.ExecuteScalar().ToString();
                 string l_balance = balance.ExecuteScalar().ToString();
                 string introduction = ($"Hello {l_name}!");
                 Intro.Content = introduction;
-                Name.Content = l_name + " " + l_lastname;
+                Name.Content = l_fullName;
                 Balance.Content = ($"{l_balance}€");
             }
             else
             {
                 SqlCommand name = new SqlCommand("Select Name From UserInfo Where Username = '" + (Register.UserName) +"';", conn);
-                SqlCommand lastname = new SqlCommand("Select LastName From UserInfo Where Username = '" + (Register.UserName) +"';", conn);
+                SqlCommand fullName = new SqlCommand("Select (Name + ' ' + LastName) From UserInfo Where Username = '" + (MainWindow.UserName) + "';", conn);
                 SqlCommand balance = new SqlCommand("Select Balance From UserInfo Where Username = '" + (Register.UserName) + "';", conn);
                 string r_name = name.ExecuteScalar().ToString();
-                string r_lastname = lastname.ExecuteScalar().ToString();
+                string r_fullName = fullName.ExecuteScalar().ToString();
                 string r_balance = balance.ExecuteScalar().ToString();
                 string introduction = ($"Hello {r_name}!");
                 Intro.Content = introduction;
-                Name.Content = r_name + " " + r_lastname;
+                Name.Content = r_fullName;
                 Balance.Content = ($"{r_balance}€");
             }
             conn.Close();
