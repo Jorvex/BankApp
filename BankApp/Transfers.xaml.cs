@@ -29,17 +29,14 @@ namespace BankApp
             SqlConnection conn = new SqlConnection(connectionString);
             conn.Open();
 
-            string command = "Select UserName From UserInfo;";
-            SqlCommand checkUser = new SqlCommand(command, conn);
-            SqlDataReader reader = checkUser.ExecuteReader();
-
+            SqlCommand checkName = new SqlCommand("Select (Name + ' ' + Lastname) as FullName From UserInfo;", conn);
+            SqlDataReader reader = checkName.ExecuteReader();
             userListBox.Items.Clear();
 
             while (reader.Read())
             {
-                userListBox.Items.Add(reader.GetString(0));
+                userListBox.Items.Add(reader["FullName"].ToString());
             }
-
             reader.Close();
             conn.Close();
             userListBox.EndInit();

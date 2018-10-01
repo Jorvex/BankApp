@@ -40,29 +40,8 @@ namespace BankApp
         //Shows the current Balance of the user.
         private void BalanceButton(object sender, RoutedEventArgs e)
         {
-            string connectionString = ("Data Source=MSI-JORDI\\SQLEXPRESS;Initial Catalog = BankAppDB; Integrated Security = True");
-            SqlConnection conn = new SqlConnection(connectionString);
-            conn.Open();
-
-            SqlCommand logInUser = new SqlCommand("Select Name From UserInfo Where UserName='" + MainWindow.UserName + "';", conn);
-            SqlCommand registerUser = new SqlCommand("Select Name From UserInfo Where UserName='" + Register.UserName + "';", conn);
-            SqlCommand logInBalance = new SqlCommand("Select Balance From UserInfo Where UserName='" + MainWindow.UserName + "';", conn);
-            SqlCommand registerBalance = new SqlCommand("Select Balance From UserInfo Where UserName='" + Register.UserName + "';", conn);
-            
-            if (MainWindow.UserName == null)
-            {
-                string r_user = registerUser.ExecuteScalar().ToString();
-                string r_balance = registerBalance.ExecuteScalar().ToString();
-                MessageBox.Show($"{r_user}, your current balance is: {r_balance}€.", "User Information");
-            }
-            
-            else
-            {
-                string l_user = logInUser.ExecuteScalar().ToString();
-                string l_balance = logInBalance.ExecuteScalar().ToString();
-                MessageBox.Show($"{l_user}, your current balance is: {l_balance}€.", "User Information");
-            }
-            conn.Close();
+            UserInfo userInfo = new UserInfo();
+            userInfo.Show();
         }
         //Runs the FindUsers window.
         private void UsersButton(object sender, RoutedEventArgs e)
