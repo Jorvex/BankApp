@@ -43,7 +43,7 @@ namespace BankApp
             else
             {
                 SqlCommand name = new SqlCommand("Select Name From UserInfo Where Username = '" + (Register.UserName) +"';", conn);
-                SqlCommand fullName = new SqlCommand("Select (Name + ' ' + LastName) From UserInfo Where Username = '" + (MainWindow.UserName) + "';", conn);
+                SqlCommand fullName = new SqlCommand("Select (Name + ' ' + LastName) From UserInfo Where Username = '" + (Register.UserName) + "';", conn);
                 SqlCommand balance = new SqlCommand("Select Balance From UserInfo Where Username = '" + (Register.UserName) + "';", conn);
                 string r_name = name.ExecuteScalar().ToString();
                 string r_fullName = fullName.ExecuteScalar().ToString();

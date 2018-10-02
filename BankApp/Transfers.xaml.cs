@@ -24,18 +24,18 @@ namespace BankApp
         {
             InitializeComponent();
             t_Balance.Focus();
-
+            
             string connectionString = ("Data Source=MSI-JORDI\\SQLEXPRESS;Initial Catalog = BankAppDB; Integrated Security = True");
             SqlConnection conn = new SqlConnection(connectionString);
             conn.Open();
 
-            SqlCommand checkName = new SqlCommand("Select (Name + ' ' + Lastname) as FullName From UserInfo;", conn);
+            SqlCommand checkName = new SqlCommand("Select UserName From UserInfo;", conn);
             SqlDataReader reader = checkName.ExecuteReader();
             userListBox.Items.Clear();
 
             while (reader.Read())
             {
-                userListBox.Items.Add(reader["FullName"].ToString());
+                userListBox.Items.Add(reader.GetString(0));
             }
             reader.Close();
             conn.Close();
