@@ -20,7 +20,6 @@ namespace BankApp
     /// </summary>
     public partial class Operations_2 : Window
     {
-        //Principal functions.
         public Operations_2()
         {
             InitializeComponent();
@@ -46,25 +45,25 @@ namespace BankApp
             }
             conn.Close();
         }
-        //Runs the Deposit window.
+
         private void DepositButton(object sender, RoutedEventArgs e)
         {
             Deposit_2 deposit = new Deposit_2();
             deposit.ShowDialog();
         }
-        //Runs the Withdraw window.
+
         private void WithdrawButton(object sender, RoutedEventArgs e)
         {
             UserInfo_2 withdraw = new UserInfo_2();
             withdraw.ShowDialog();
         }
-        //Shows the current Balance of the user.
+
         private void BalanceButton(object sender, RoutedEventArgs e)
         {
             UserInfo userInfo = new UserInfo();
             userInfo.Show();
         }
-        //Runs the FindUsers window.
+
         private void UsersButton(object sender, RoutedEventArgs e)
         {
             Transfers users = new Transfers();

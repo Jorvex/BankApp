@@ -26,7 +26,6 @@ namespace BankApp
             DepositBox.Focus();
         }
         
-        //Manages deposit button.
         private void DepositButton(object sender, RoutedEventArgs e)
         {
             if (Register.UserName == null)
@@ -43,7 +42,6 @@ namespace BankApp
                     conn.Close();
                     this.Close();
                 }
-                //If in TextBox there are not only numbers, will appear a error message.
                 catch (SqlException)
                 {
                     MessageBox.Show("Incorrect format! Please type only numbers.", "Error");
@@ -53,10 +51,8 @@ namespace BankApp
                     MessageBox.Show("Incorrect format! Please type only numbers.", "Error");
                 }
             }
-            //Adds the related quantity.
             else
             {
-                //Removes the related quantity.
                 try
                 {
                     string connectionString = ("Data Source=MSI-JORDI\\SQLEXPRESS;Initial Catalog = BankAppDB; Integrated Security = True");
@@ -69,7 +65,6 @@ namespace BankApp
                     conn.Close();
                     this.Close();
                 }
-                //If in TextBox there are not only numbers, will appear a error message.
                 catch (SqlException)
                 {
                     MessageBox.Show("Incorrect format! Please type only numbers.", "Error");
@@ -80,7 +75,7 @@ namespace BankApp
                 }
             }
         }
-        //Close the window.
+
         private void CloseButton(object sender, RoutedEventArgs e)
         {
             this.Close();

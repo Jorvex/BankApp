@@ -159,7 +159,6 @@ namespace BankApp
 
         }
 
-        //Close the window.
         private void CloseButton(object sender, RoutedEventArgs e)
         {
             this.Close();

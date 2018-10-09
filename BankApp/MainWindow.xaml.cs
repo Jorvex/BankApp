@@ -24,11 +24,9 @@ namespace BankApp
     {
         public MainWindow()
         {
-            //DataBaseFile database = new DataBaseFile();
             InitializeComponent();
             User.Focus();
         }
-        //Create this variable for manage the TextBox.
         public static string UserName { get; set; }
 
         private void LogInButton(object sender, RoutedEventArgs e)
@@ -65,6 +63,7 @@ namespace BankApp
                 }
             }
         }
+
         private void RegisterButton(object sender, RoutedEventArgs e)
         {
             Register register = new Register();

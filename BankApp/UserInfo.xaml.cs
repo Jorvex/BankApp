@@ -25,8 +25,8 @@ namespace BankApp
             string connectionString = ("Data Source=MSI-JORDI\\SQLEXPRESS;Initial Catalog = BankAppDB; Integrated Security = True");
             SqlConnection conn = new SqlConnection(connectionString);
             conn.Open();
-
             InitializeComponent();
+
             if (Register.UserName == null)
             {
                 SqlCommand name = new SqlCommand("Select Name From UserInfo Where Username = '" + (MainWindow.UserName) + "';",conn);

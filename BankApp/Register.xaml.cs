@@ -78,6 +78,7 @@ namespace BankApp
             }
             conn.Close();
         }
+
         private void GoBackBttn(object sender, RoutedEventArgs e)
         {
             MainWindow main = new MainWindow();
